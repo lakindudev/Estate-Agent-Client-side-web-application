@@ -1,0 +1,116 @@
+{
+	"properties": [
+        {
+            "id":"prop1",
+			"type":"House",
+            "bedrooms":3,
+			"price":750000,
+			"tenure":"Freehold",
+			"description":"Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior...",
+			"location":"Petts Wood Road, Petts Wood, Orpington BR5",
+			"picture":"images/prop1pic1small.jpg",
+			"url":"properties/prop1.html",
+            "added": {
+                "month":"October",
+                "day":12,
+                "year":2022
+            }
+        },
+		{
+            "id":"prop2",
+			"type":"Flat",
+            "bedrooms":2,
+			"price":399995,
+			"tenure":"Freehold",
+			"description":"Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
+			"location":"Crofton Road Orpington BR6",
+			"picture":"images/prop2pic1small.jpg",
+			"url":"properties/prop2.html",
+            "added": {
+                "month":"September",
+                "day":14,
+                "year":2022
+            }
+        },
+        {
+            "id": "prop3",
+            "type": "House",
+            "bedrooms": 4,
+            "price": 1050000,
+            "tenure": "Freehold",
+            "description": "Spacious four-bedroom detached house with a large garden, double garage, and modern interiors. Located close to excellent schools and local amenities, this property features an open-plan kitchen/dining area, a separate living room, and a study.",
+            "location": "Elmwood Avenue, Bromley BR1",
+            "picture": "images/prop3pic1small.jpg",
+            "url": "properties/prop3.html",
+            "added": {
+                "month": "July",
+                "day": 20,
+                "year": 2023
+            }
+        },
+        {
+            "id": "prop4",
+            "type": "Flat",
+            "bedrooms": 1,
+            "price": 275000,
+            "tenure": "Leasehold",
+            "description": "Modern one-bedroom flat with stunning city views. This property boasts an open-plan kitchen/living area with floor-to-ceiling windows, a spacious bedroom with built-in wardrobes, and a fully tiled bathroom.",
+            "location": "High Street, Croydon CR0",
+            "picture": "images/prop4pic1small.jpg",
+            "url": "properties/prop4.html",
+            "added": {
+                "month": "March",
+                "day": 8,
+                "year": 2023
+            }
+        },
+        {
+            "id": "prop5",
+            "type": "Cottage",
+            "bedrooms": 3,
+            "price": 625000,
+            "tenure": "Freehold",
+            "description": "Charming three-bedroom countryside cottage with original features, including exposed beams and a wood-burning stove. The property includes a large garden with a patio area and a driveway for two cars.",
+            "location": "Green Lane, Sevenoaks TN13",
+            "picture": "images/prop5pic1small.jpg",
+            "url": "properties/prop5.html",
+            "added": {
+                "month": "November",
+                "day": 15,
+                "year": 2022
+            }
+        },
+        {
+            "id": "prop6",
+            "type": "Apartment",
+            "bedrooms": 2,
+            "price": 450000,
+            "tenure": "Leasehold",
+            "description": "Luxury two-bedroom apartment in a secure gated community. Includes a private balcony, underground parking, and access to a residents-only gym and swimming pool.",
+            "location": "Park Lane, Beckenham BR3",
+            "picture": "images/prop6pic1small.jpg",
+            "url": "properties/prop6.html",
+            "added": {
+                "month": "May",
+                "day": 10,
+                "year": 2023
+            }
+        },
+        {
+            "id": "prop7",
+            "type": "House",
+            "bedrooms": 5,
+            "price": 1300000,
+            "tenure": "Freehold",
+            "description": "Elegant five-bedroom detached house in a prestigious neighborhood. The property features a grand entrance hall, multiple reception rooms, a modern kitchen, and a landscaped garden.",
+            "location": "The Avenue, Orpington BR6",
+            "picture": "images/prop7pic1small.jpg",
+            "url": "properties/prop7.html",
+            "added": {
+                "month": "August",
+                "day": 22,
+                "year": 2023
+            }
+        }
+
+]}
