@@ -20,8 +20,7 @@ function SearchForm (){
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    // Add your search logic here
+    onSearch(formData); // Pass the form data to the parent component
   };
 
   return (
