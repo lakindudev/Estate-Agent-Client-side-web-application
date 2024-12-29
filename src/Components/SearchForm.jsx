@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-
-function SearchForm (){
+function SearchForm ({onSearch}){
   const [formData, setFormData] = useState({
     propertyType: "",
     postcode: "",

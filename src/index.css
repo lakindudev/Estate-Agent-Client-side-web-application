@@ -152,6 +152,86 @@ body {
     text-align: center;
 }
 
+
+
+
+/* property card styles */
+.property-results{
+    display: flex;
+    
+}
+.property-card {
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px; 
+    overflow: hidden; 
+    transition: transform 0.2s; /* Smooth scaling effect on hover */
+    width: 300px;
+    
+}
+
+.property-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+.property-card-image {
+    width: 100%; /* Full width for the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.property-card-content {
+    padding: 15px; /* Space inside the card */
+    background-color: #f9f9f9; /* Light background for content */
+}
+
+.property-card-content h3 {
+    margin: 0 0 10px; /* Space below the heading */
+    font-size: 1.5em; /* Larger font size for the title */
+}
+
+.property-card-content p {
+    margin: 5px 0; /* Space between paragraphs */
+}
+
+.btn {
+
+    width: 40%;
+    height: 40px;
+
+}
+.card-button{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.favourite-btn.active svg {
+    fill: red; /* Change SVG color to red when active */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Media query for smaller devices */
 @media (max-width: 600px) {
     .form {
@@ -167,5 +247,11 @@ body {
     .button {
         padding: 15px; /* Adjust button padding */
         font-size: 18px; /* Adjust button font size */
+    }
+
+    /* property card styles */
+    .property-results {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center align cards */
     }
 }
