@@ -153,13 +153,12 @@ body {
 }
 
 
-
-
 /* property card styles */
 .property-results {
     display: flex;
     flex-wrap: wrap; /* Allow wrapping */
     gap: 20px; /* Space between cards */
+    justify-content: center;
 }
 
 .property-card {
@@ -206,11 +205,33 @@ body {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 20px;
 }
 .favourite-btn.active svg {
     fill: red; /* Change SVG color to red when active */
 }
+
+.btn {
+    display: inline-block; /* Ensures it behaves like a button */
+    font-weight: bold;
+    text-align: center;
+    color: #fff; /* Text color */
+    background-color: #007bff; /* Button background color */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none; /* Removes underline */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.view-details-btn {
+    display: flex;
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+    width: 100%; /* Optional: Make the button take full width of its container */
+  }
+
+
 
 
 /* Favourite list styles */
@@ -289,6 +310,73 @@ body {
 }
 
 
+/* property details styles */
+
+.property-details {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  /* Main Image */
+  .property-main-image {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .main-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  /* Thumbnails */
+  .property-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease, border-color 0.3s ease;
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.1);
+  }
+  
+  .thumbnail.active {
+    border-color: #007bff; /* Highlight active thumbnail */
+  }
+  
+  /* Property Info */
+  .property-info {
+    margin-top: 20px;
+  }
+  
+  .property-info h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .property-info p {
+    margin: 10px 0;
+    font-size: 1.2em;
+  }
+  
 
 
 
