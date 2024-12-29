@@ -156,10 +156,12 @@ body {
 
 
 /* property card styles */
-.property-results{
+.property-results {
     display: flex;
-    
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 20px; /* Space between cards */
 }
+
 .property-card {
     border: 1px solid #ddd; 
     border-radius: 8px; 
@@ -211,6 +213,81 @@ body {
 }
 
 
+/* Favourite list styles */
+
+/* Favorite List Container */
+.favorite-list {
+    border: 2px dashed #ddd; /* Dashed border for the drop area */
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Highlight the drop area when dragging over */
+.favorite-list.drag-over {
+    background-color: #ffe6e6; /* Light red background */
+}
+
+/* Favorite List Header */
+.favorite-list h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Favorite Items */
+.favorite-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Hover Effect on Favorite Items */
+.favorite-item:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+    background-color: #f0f0f0; /* Light gray background */
+}
+
+/* Favorite Item Text */
+.favorite-item p {
+    margin: 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Remove Button */
+.favorite-item button {
+    background-color: #ff4d4d; /* Red background */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.favorite-item button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+/* Empty List Message */
+.favorite-list p {
+    color: #888;
+    font-style: italic;
+}
+
 
 
 
@@ -253,5 +330,23 @@ body {
     .property-results {
         flex-direction: column; /* Stack cards vertically */
         align-items: center; /* Center align cards */
+    }
+
+
+    /* favourite list styles */
+    
+    .favorite-list {
+        padding: 15px;
+        margin: 20px;
+    }
+
+    .favorite-item {
+        flex-direction: column; /* Stack content vertically */
+        align-items: flex-start;
+    }
+
+    .favorite-item button {
+        margin-top: 10px; /* Add space for stacked layout */
+        width: 100%; /* Full width on smaller screens */
     }
 }

@@ -4,10 +4,13 @@ import SearchForm from "./Components/SearchForm.jsx";
 import propertiesData from "./properties.json";
 import PropertyCard from "./Components/PropertyCard.jsx";
 import React, { useState } from "react";
+import FavoriteList from "./Components/FavouriteList.jsx";
 
 
 function App() {
   const [filteredProperties, setFilteredProperties] = useState(propertiesData.properties);
+  const [favorites, setFavorites] = useState([]);
+
 
   const handleSearch = (formData) => {
     const filtered = propertiesData.properties.filter((property) => {
@@ -56,6 +59,16 @@ function App() {
     console.log("Filtered Properties:", filtered); // Debugging
     setFilteredProperties(filtered);
   };
+
+  const toggleFavorite = (property) => {
+    setFavorites((prevFavorites) => {
+      if (prevFavorites.some((fav) => fav.id === property.id)) {
+        return prevFavorites.filter((fav) => fav.id !== property.id);
+      }
+      return [...prevFavorites, property];
+    });
+  };
+
   
 
   return (
@@ -68,13 +81,13 @@ function App() {
       <div className="property-results">
         {filteredProperties.length > 0 ? (
           filteredProperties.map((property) => (
-            <PropertyCard key={property.id} property={property} />
+            <PropertyCard key={property.id} property={property} onToggleFavorite={toggleFavorite} isFavorite={favorites.some((fav) => fav.id === property.id)} />
           ))
         ) : (
           <p>No properties match your search criteria.</p>
         )}
       </div>
-
+      <FavoriteList favorites={favorites} onRemoveFavorite={toggleFavorite} />
       <Footer />
     </div>
     
