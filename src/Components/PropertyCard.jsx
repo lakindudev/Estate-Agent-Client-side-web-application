@@ -10,7 +10,8 @@ function PropertyCard({ property, onToggleFavorite, isFavorite }) {
     <div className="property-card" draggable onDragStart={handleDragStart}>
       <img src={property.picture || "/images/house/prop1.jpg"}alt={property.type} className="property-card-image" />
       <div className="property-card-content">
-        <h3>{property.type}</h3>
+        <h3>{property.thumbnail}</h3>
+        <p><strong>Type:</strong>{property.type}</p>
         <p>
           <strong>Location:</strong> {property.location}
         </p>

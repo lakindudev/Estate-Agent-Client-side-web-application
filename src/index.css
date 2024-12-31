@@ -377,7 +377,15 @@ body {
     margin: 10px 0;
     font-size: 1.2em;
   }
-  
+
+  .floor-plan img {
+    width: 100%;
+    max-width: 600px; /* Set a max-width to prevent overflow */
+    height: auto;
+    object-fit: contain; /* Ensures the aspect ratio is maintained */
+    margin: 0 auto; /* Center the image */
+    display: block;
+  }
 
 /* contact page styles */
 .contact-page {
