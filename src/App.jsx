@@ -6,6 +6,8 @@ import SearchForm from "./Components/SearchForm.jsx";
 import PropertyCard from "./Components/PropertyCard.jsx";
 import PropertyDetails from "./Components/PropertyDetails.jsx";
 import FavoriteList from "./Components/FavouriteList.jsx";
+import Contact from "./Components/Contact.jsx";
+import About from "./Components/About.jsx";
 import propertiesData from "./properties.json";
 
 function App() {
@@ -67,6 +69,9 @@ function App() {
           }
         />
         <Route path="/property/:id" element={<PropertyDetails />} />
+        <Route path="/favorites" element={<FavoriteList favorites={favorites} onRemoveFavorite={toggleFavorite} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>

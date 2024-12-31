@@ -10,6 +10,8 @@ function FavoriteList({ favorites, onRemoveFavorite }) {
     e.preventDefault();
   };
 
+  console.log("Favorites in FavoriteList:", favorites); // Debugging log
+
   return (
     <div className="favorite-list" onDrop={handleDrop} onDragOver={handleDragOver}>
       <h2>Favorite Properties</h2>
