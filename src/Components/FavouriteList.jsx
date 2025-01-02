@@ -11,12 +11,18 @@ function FavoriteList({ favorites, onRemoveFavorite }) {
   };
 
   return (
-    <div className="favorite-list" onDrop={handleDrop} onDragOver={handleDragOver}>
+    <div
+      className="favorite-list"
+      onDrop={handleDrop}
+      onDragOver={handleDragOver}
+    >
       <h2>Favorite Properties</h2>
       {favorites.length > 0 ? (
         favorites.map((property) => (
           <div key={property.id} className="favorite-item">
-            <p>{property.type} - {property.location}</p>
+            <p>
+              {property.type} - {property.location}
+            </p>
             <button onClick={() => onRemoveFavorite(property)}>Remove</button>
           </div>
         ))

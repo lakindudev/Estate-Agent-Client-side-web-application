@@ -2,10 +2,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-    margin: 0; 
-    padding: 0; 
-    min-height: 100vh;
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
 .nav-bar{
@@ -208,6 +207,7 @@ body {
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+    
 }
 .favourite-btn.active svg {
     fill: red; /* Change SVG color to red when active */

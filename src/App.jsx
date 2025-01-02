@@ -9,6 +9,9 @@ import FavoriteList from "./Components/FavouriteList.jsx";
 import Contact from "./Components/Contact.jsx";
 import About from "./Components/About.jsx";
 import propertiesData from "./properties.json";
+import SearchPage from "./Components/Search.jsx"; // Import the new SearchPage component
+
+
 
 function App() {
   const [filteredProperties, setFilteredProperties] = useState(propertiesData.properties);
@@ -68,6 +71,7 @@ function App() {
             </>
           }
         />
+        <Route path="/search" element={<SearchPage />} /> {/* New route for the search page */}
         <Route path="/property/:id" element={<PropertyDetails />} />
         <Route path="/favorites" element={<FavoriteList favorites={favorites} onRemoveFavorite={toggleFavorite} />} />
         <Route path="/about" element={<About />} />
