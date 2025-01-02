@@ -94,6 +94,80 @@ html, body {
     margin-left: 30px;
     color: white;
 }
+.image-container {
+  width: 100%;
+  position: relative;
+  display: inline-block; /* Adjust as needed */
+}
+
+.landpage_img {
+  width: 100%; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 80px;
+}
+
+.overlay-heading {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* Change text color as needed */
+  font-size: 60px; /* Adjust font size as needed */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for better visibility */
+}
+
+.overlay-text {
+  position: absolute;
+  top: 35%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  color: white; 
+  font-size: 40px; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+.home-btn {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  color: white; 
+  background-color: blue;
+  border-radius: 20px;
+  font-size: 50px; 
+  padding: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%); /* Start off-screen to the right */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Fully visible */
+  }
+  100% {
+    transform: translateX(-100%); /* End off-screen to the left */
+    opacity: 0; /* Fade out */
+  }
+}
+
+.overlay-heading {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; 
+  font-size: 60px; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for better visibility */
+  animation: slideLeft 5s linear infinite; /* Apply the animation */
+}
+
+
+
+
 
 
 /* search Form styles */
