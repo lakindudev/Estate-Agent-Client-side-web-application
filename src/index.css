@@ -5,6 +5,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  background-color: #f0f0f0;
 }
 
 .nav-bar{
@@ -57,7 +58,7 @@ html, body {
 /* footer styles */
 .footer{
     margin-top: auto;
-    background-color: grey;
+    background-color: #333;
     text-align: center;
     height: 200px;
 }
@@ -106,15 +107,6 @@ html, body {
   margin-bottom: 80px;
 }
 
-.overlay-heading {
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white; /* Change text color as needed */
-  font-size: 60px; /* Adjust font size as needed */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for better visibility */
-}
 
 .overlay-text {
   position: absolute;
@@ -132,13 +124,23 @@ html, body {
   left: 80%;
   transform: translate(-50%, -50%);
   color: white; 
-  background-color: blue;
+  background-color: #ff6f61;
   border-radius: 20px;
-  font-size: 50px; 
-  padding: 20px;
+  font-size: 40px; 
+  font-weight: bold;
+  padding: 15px 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+  box-shadow: 0 4px 15px rgba(255, 111, 97, 0.5);
+  z-index: 1;
+  border: none;
+  cursor: pointer;
 }
 
+.home-btn:hover {
+  background-color: #ff4a3a; /* Darker background on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+}
 
 @keyframes slideLeft {
   0% {
@@ -156,11 +158,11 @@ html, body {
 
 .overlay-heading {
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white; 
-  font-size: 60px; 
+  font-size: 50px; 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for better visibility */
   animation: slideLeft 5s linear infinite; /* Apply the animation */
 }
@@ -233,6 +235,21 @@ html, body {
     gap: 20px; /* Space between cards */
     justify-content: center;
 }
+.propertyList {
+  margin: 20px auto; /* Center the property list with margin */
+  padding: 20px; /* Add padding for spacing */
+  max-width: 1200px; /* Set a maximum width for the property list */
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-bottom: 80px;
+}
+.property-list-heading {
+  text-align: center; /* Center the heading */
+  font-size: 2em; /* Larger font size */
+  margin-bottom: 20px; /* Space below the heading */
+  color: #333; /* Color for the heading */
+}
 
 .property-card {
     border: 1px solid #ddd; 
@@ -281,6 +298,7 @@ html, body {
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+  
     
 }
 .favourite-btn.active svg {
@@ -596,5 +614,21 @@ html, body {
     .favorite-item button {
         margin-top: 10px; /* Add space for stacked layout */
         width: 100%; /* Full width on smaller screens */
+    }
+
+    .overlay-heading {
+      position: absolute;
+      top: 10%; /* Further adjust position for very small screens */
+      font-size: 35px; /* Even smaller font size */
+    }
+  
+    .overlay-text {
+      top: 35%; /* Further adjust position for very small screens */
+      font-size: 15px; /* Even smaller font size */
+    }
+  
+    .home-btn {
+      padding: 5px 10px; /* Further adjust padding for very small screens */
+      font-size: 12px; /* Even smaller font size */
     }
 }
