@@ -1,35 +1,48 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// PropertyCard component to display individual property details
 function PropertyCard({ property, onToggleFavorite, isFavorite }) {
+  // Function to handle the drag start event
   const handleDragStart = (e) => {
-    e.dataTransfer.setData("property", JSON.stringify(property));
+    e.dataTransfer.setData("property", JSON.stringify(property)); // Set the property data for drag-and-drop
   };
 
   return (
     <div className="property-card" draggable onDragStart={handleDragStart}>
-      <img src={property.picture || "/images/house/prop1.jpg"}alt={property.type} className="property-card-image" />
-      <div className="property-card-content">
-        <h3>{property.thumbnail}</h3>
-        <p><strong>Type:</strong>{property.type}</p>
+      {" "}
+      {/* Make the card draggable */}
+      <img
+        src={property.picture || "/images/house/prop1.jpg"}
+        alt={property.type}
+        className="property-card-image"
+      />
+      <div className="property-card-content">   {/* Container for property details */}
+        <h3>{property.thumbnail}</h3>   {/* Display property thumbnail */}
         <p>
-          <strong>Location:</strong> {property.location}
+          <strong>Type:</strong>
+          {property.type}     {/* Display property type */}
         </p>
         <p>
-          <strong>Price:</strong> £{property.price.toLocaleString()}
+          <strong>Location:</strong> {property.location}   {/* Display property location */}
         </p>
         <p>
-          <strong>Bedrooms:</strong> {property.bedrooms}
+          <strong>Price:</strong> £{property.price.toLocaleString()}  {/* Display property price formatted with commas */}
+        </p>
+        <p>
+          <strong>Bedrooms:</strong> {property.bedrooms}   {/* Display number of bedrooms */}
         </p>
 
-        <div className="card-button">
-
-          <Link to={`/property/${property.id}`} className="view-details-btn btn">
+        <div className="card-button">   {/* Container for action buttons */}
+          <Link
+            to={`/property/${property.id}`}  // Link to property details page
+            className="view-details-btn btn"
+          >
             View Details
           </Link>
 
           <button
-            className={`favourite-btn btn ${isFavorite ? "favorite" : ""}`}
+            className={`favourite-btn btn ${isFavorite ? "favorite" : ""}`}  // Button to toggle favorite status
             onClick={() => onToggleFavorite(property)}
           >
             <svg
@@ -37,7 +50,7 @@ function PropertyCard({ property, onToggleFavorite, isFavorite }) {
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill={isFavorite ? "red" : "none"}
+              fill={isFavorite ? "red" : "none"}  // Fill color based on favorite status
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"

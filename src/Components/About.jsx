@@ -5,7 +5,7 @@ function About() {
     <div className="about-page">
       <h1>About HavenHub</h1>
       <p>
-        Welcome to HavenHub! Our mission is to simplify the property search experience for homebuyers, renters, and investors. 
+        Welcome to HavenHub! Our mission is to simplify the property search experience for homebuyers and investors. 
         We are committed to providing a user-friendly platform that connects people to their dream properties efficiently.
       </p>
       

@@ -9,46 +9,48 @@ import FavoriteList from "./Components/FavouriteList.jsx";
 import Contact from "./Components/Contact.jsx";
 import About from "./Components/About.jsx";
 import propertiesData from "./properties.json";
-import SearchPage from "./Components/Search.jsx";
+
 
 function App() {
     // State to hold filtered properties and favorites
   const [filteredProperties, setFilteredProperties] = useState(
-    propertiesData.properties
+    propertiesData.properties    // Initial state set to all properties from JSON
   );
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState([]);   // State to hold favorite properties
 
   // Function to handle property search based on form data
   const handleSearch = (formData) => {
+    // Filter properties based on search criteria
     const filtered = propertiesData.properties.filter((property) => {
       const propertyDate = new Date(
-        `${property.added.year}-${property.added.month}-${property.added.day}`
+        `${property.added.year}-${property.added.month}-${property.added.day}`   // Convert added date to Date object
       );
+      // Check if property matches the search criteria
       const matchesType = formData.propertyType
-        ? property.type.toLowerCase() === formData.propertyType.toLowerCase()
+        ? property.type.toLowerCase() === formData.propertyType.toLowerCase()    // Match property type
         : true;
       const matchesPostcode = formData.postcode
         ? property.location
             .toLowerCase()
-            .includes(formData.postcode.toLowerCase())
+            .includes(formData.postcode.toLowerCase())   // Match property location
         : true;
-      const matchesMinPrice = formData.minPrice
-        ? property.price >= formData.minPrice
+      const matchesMinPrice = formData.minPrice    
+        ? property.price >= formData.minPrice      // Match minimum price
         : true;
       const matchesMaxPrice = formData.maxPrice
-        ? property.price <= formData.maxPrice
+        ? property.price <= formData.maxPrice     // Match maximum price
         : true;
       const matchesMinBedrooms = formData.minBedrooms
-        ? property.bedrooms >= formData.minBedrooms
+        ? property.bedrooms >= formData.minBedrooms    // Match minimum bedrooms
         : true;
       const matchesMaxBedrooms = formData.maxBedrooms
-        ? property.bedrooms <= formData.maxBedrooms
+        ? property.bedrooms <= formData.maxBedrooms    // Match maximum bedrooms
         : true;
       const matchesDateFrom = formData.dateFrom
-        ? propertyDate >= new Date(formData.dateFrom)
+        ? propertyDate >= new Date(formData.dateFrom)    // Match start date
         : true;
       const matchesDateTo = formData.dateTo
-        ? propertyDate <= new Date(formData.dateTo)
+        ? propertyDate <= new Date(formData.dateTo)     // Match end date
         : true;
 
       // Return true if all conditions match
@@ -92,15 +94,15 @@ function App() {
   return (
     <Router>
       <NavBar />
-      <div className="image-container">
+      <div className="image-container">   {/* Render the navigation bar */}
         <img
           src="https://t3.ftcdn.net/jpg/03/22/06/68/360_F_322066808_CANrp7u5Cdiz7700TJReqKD299d2AZtD.jpg"
           alt="landpage_img"
           className="landpage_img"
         />
-        <div className="overlay-heading">Welcome to the HeavenHub</div>
+        <div className="overlay-heading">Welcome to the HeavenHub</div>   {/* Overlay heading */}
         <div className="overlay-text"> Discover your dream Property</div>
-        <button className="home-btn" onClick={handleHomeBtnClick}>
+        <button className="home-btn" onClick={handleHomeBtnClick}>   {/* Button to trigger search area scroll */}
           {" "}
           Search Now
         </button>
@@ -111,51 +113,50 @@ function App() {
           element={
             <>
               <h1 className="search-head" id="search-area">
-                Estate Agent Property Search
+                Estate Agent Property Search     {/* Main heading for search area */}
               </h1>
-              <SearchForm onSearch={handleSearch} />
+              <SearchForm onSearch={handleSearch} />    {/* Render search form */}
               <div className="propertyList">
-                <h2 className="property-list-heading">Property List</h2>
+                <h2 className="property-list-heading">Property List</h2>   {/* Heading for property list */}
                 <div className="property-results">
                   {filteredProperties.length > 0 ? (
                     filteredProperties.map((property) => (
                       <PropertyCard
-                        key={property.id}
-                        property={property}
-                        onToggleFavorite={toggleFavorite}
+                        key={property.id}       // Unique key for each property card
+                        property={property}    // Pass property data to PropertyCard
+                        onToggleFavorite={toggleFavorite} // Pass toggle function
                         isFavorite={favorites.some(
-                          (fav) => fav.id === property.id
+                          (fav) => fav.id === property.id   // Check if property is favorite
                         )}
                       />
                     ))
                   ) : (
-                    <p>No properties match your search criteria.</p>
+                    <p>No properties match your search criteria.</p>  // Message if no properties found
                   )}
                 </div>
               </div>
               <FavoriteList
-                favorites={favorites}
-                onRemoveFavorite={toggleFavorite}
+                favorites={favorites}    // Pass favorite properties to FavoriteList
+                onRemoveFavorite={toggleFavorite}    // Pass toggle function
               />
             </>
           }
         />
-        <Route path="/search" element={<SearchPage />} />{" "}
-        {/* New route for the search page */}
-        <Route path="/property/:id" element={<PropertyDetails />} />
+        
+        <Route path="/property/:id" element={<PropertyDetails />} />   {/* Route for property details */}
         <Route
-          path="/favorites"
+          path="/favorites"     
           element={
             <FavoriteList
-              favorites={favorites}
-              onRemoveFavorite={toggleFavorite}
+              favorites={favorites}    // Pass favorite properties to FavoriteList
+              onRemoveFavorite={toggleFavorite}   // Pass toggle function
             />
           }
         />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />   {/* Route for About page */}
+        <Route path="/contact" element={<Contact />} />   {/* Route for Contact page */}
       </Routes>
-      <Footer />
+      <Footer />   {/* Render the footer */}
     </Router>
   );
 }
