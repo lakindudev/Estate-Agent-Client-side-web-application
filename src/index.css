@@ -1,148 +1,174 @@
 /* --------------------------------- Global Styles --------------------------------------- */
-*{
-    font-family: Arial, Helvetica, sans-serif;
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   background-color: #f0f0f0;
 }
- /* -----------------------------navigation bar styles ----------------------------------------- */
-.nav-bar{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    background-color: grey;
-    justify-content: space-between;
-    color: white;
-   
+/* -----------------------------navigation bar styles ----------------------------------------- */
+.nav-bar {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  background-color: #1c354e;
+  justify-content: space-between;
+  color: white;
 }
-.logo{
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
+/* Logo styles */
+.logo {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
 }
-
-.logo-img{
-    width: 60px;
-    height: 60px;
-    margin-left: 20px;
-    padding: 10px;
+/* Logo image styles */
+.logo-img {
+  width: 60px;
+  height: 60px;
+  margin-left: 20px;
+  padding: 10px;
 }
-
-.logo-name{
-    font-size: 20px;
-    margin-top: 28px;
+/* Logo name styles */
+.logo-name {
+  font-size: 20px;
+  margin-top: 28px;
 }
-
-
-
-.nav-bar .nav-links{
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    margin-right: 30px;
-    gap: 30px;
-    list-style-type: none;
+/* Navigation links styles */
+.nav-bar .nav-links {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin-right: 30px;
+  gap: 50px;
+  list-style-type: none;  /* Remove bullet points */
 }
-
+/* Link styles */
 .nav-links a {
-    text-decoration: none; 
-    color: white;
-}
-.nav-links a:hover{
-    color: red;
-}
-
-/* footer styles */
-.footer{
-    margin-top: auto;
-    background-color: #333;
-    text-align: center;
-    height: 200px;
-}
-.social-media{
-    padding-top: 20px;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    list-style-type: none;
-    justify-content: center;
-    
-}
-.social-media .link{
-    text-decoration: none;
-    color: white;
+  text-decoration: none; /* Removes underline from links */
+  color: rgb(201, 191, 191);
+  font-size: 18px;
+  position: relative; /* Allows positioning of the pseudo-element */
+  padding: 5px 0;
+  transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
-.footer .nav-footer{
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    list-style: none;
-    justify-content: center;
-    margin-top: 40px;
+/* Underline effect for links */
+.nav-links a::after {
+  content: ""; /* Creates a pseudo-element */
+  position: absolute; /* Positions the pseudo-element */
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: red; /* Color of the underline */
+  transform: scaleX(0); /* Initially scales to 0 (hidden) */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
 
+/* Change link color on hover */
+.nav-links a:hover {
+  color: red; /* Changes link color to light blue on hover */
 }
-.footer .nav-footer .nav{
-    text-decoration: none;
-    color: white;
+/* Show underline on hover */
+.nav-links a:hover::after {
+  transform: scaleX(1); /* Scales to full width on hover */
 }
 
-.footer .footer-para{
-    margin-top: 40px;
-    margin-left: 30px;
-    color: white;
+/* -----------------------------------------footer styles-------------------------------------------- */
+.footer {
+  margin-top: auto;
+  background-color: #333;
+  text-align: center;
+  height: 200px;
 }
+/* Social media links styles */
+.social-media {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  list-style-type: none;
+  justify-content: center;
+}
+/* Individual social media link styles */
+.social-media .link {
+  text-decoration: none;
+  color: white;
+}
+/* Individual social media link styles */
+.footer .nav-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  list-style: none;
+  justify-content: center;
+  margin-top: 40px;
+}
+/* Individual footer nav link styles */
+.footer .nav-footer .nav {
+  text-decoration: none;
+  color: white;
+}
+/* Footer paragraph styles */
+.footer .footer-para {
+  margin-top: 40px;
+  margin-left: 30px;
+  color: white;
+}
+/* Image container styles */
 .image-container {
   width: 100%;
   position: relative;
   display: inline-block; /* Adjust as needed */
 }
 
+/* ----------------------------landing page styles----------------------------------------- */
+
+/* Landing page image styles */
 .landpage_img {
   width: 100%; /* Adjust as needed */
   height: auto; /* Maintain aspect ratio */
   margin-bottom: 80px;
 }
-
-
+/* Overlay text styles */
 .overlay-text {
   position: absolute;
   top: 35%;
   left: 80%;
   transform: translate(-50%, -50%);
-  color: white; 
-  font-size: 40px; 
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+  color: white;
+  font-size: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
-
+/* Home button styles */
 .home-btn {
   position: absolute;
   top: 50%;
   left: 80%;
   transform: translate(-50%, -50%);
-  color: white; 
+  color: white;
   background-color: #ff6f61;
   border-radius: 20px;
-  font-size: 40px; 
+  font-size: 40px;
   font-weight: bold;
   padding: 15px 30px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+  transition: background-color 0.3s ease, transform 0.3s ease;/* Smooth transition for hover effects */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   box-shadow: 0 4px 15px rgba(255, 111, 97, 0.5);
   z-index: 1;
   border: none;
   cursor: pointer;
 }
-
+/* Home button hover effect */
 .home-btn:hover {
   background-color: #ff4a3a; /* Darker background on hover */
   transform: translateY(-3px); /* Lift effect on hover */
 }
-
+/* Keyframes for slide left animation */
 @keyframes slideLeft {
   0% {
     transform: translateX(100%); /* Start off-screen to the right */
@@ -156,480 +182,508 @@ html, body {
     opacity: 0; /* Fade out */
   }
 }
-
+/* Overlay heading styles */
 .overlay-heading {
   position: absolute;
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white; 
-  font-size: 50px; 
+  color: white;
+  font-size: 50px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for better visibility */
   animation: slideLeft 5s linear infinite; /* Apply the animation */
 }
 
-
-
-
-
-
-/* search Form styles */
+/* ----------------------------------search Form styles------------------------------------------ */
 
 .form {
-    padding: 40px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    font-size: 20px;
-    margin-bottom: 50px;
-    
+  padding: 40px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  font-size: 20px;
+  margin-bottom: 50px;
 }
-
+/* Row styles for form fields */
 .row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    gap: 30px;
-    flex-wrap: nowrap;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 30px;
+  flex-wrap: nowrap;
 }
-
+/* Field styles for individual input fields */
 .field {
-    flex: 1;
-    margin-right: 10px;
+  flex: 1;  /* Allow fields to grow */
+  margin-right: 10px;
 }
-
+/* Remove margin for the last field */
 .field:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
-
+/* Input field styles */
 .input {
-    width: 100%; 
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin-top: 5px;
-    
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
 }
-
+/* Button styles */
 .button {
-    width: 100%;
-    padding: 10px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background color and scaling */
+}
+/* Button hover effect */
+.button:hover {
+  background-color: #444; /* Darker background on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+/* Search heading styles */
+.search-head {
+  text-align: center;
 }
 
-.search-head{
-    text-align: center;
-}
-
-
-/* property card styles */
+/* -------------------------------------property card styles----------------------------------------------------------- */
 .property-results {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
-    gap: 20px; /* Space between cards */
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 20px; /* Space between cards */
+  justify-content: center;
 }
+/* Property list styles */
 .propertyList {
   margin: 20px auto; /* Center the property list with margin */
   padding: 20px; /* Add padding for spacing */
-  max-width: 1200px; /* Set a maximum width for the property list */
-  background-color: #f9f9f9; /* Light background color */
-  border-radius: 10px; /* Rounded corners */
+  max-width: 1200px; 
+  background-color: #f9f9f9; 
+  border-radius: 10px; 
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   margin-bottom: 80px;
 }
+/* Property list heading styles */
 .property-list-heading {
-  text-align: center; /* Center the heading */
-  font-size: 2em; /* Larger font size */
+  text-align: center; 
+  font-size: 2em; 
   margin-bottom: 20px; /* Space below the heading */
-  color: #333; /* Color for the heading */
+  color: #333; 
 }
-
+/* Individual property card styles */
 .property-card {
-    border: 1px solid #ddd; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 20px; 
-    overflow: hidden; 
-    transition: transform 0.2s; /* Smooth scaling effect on hover */
-    width: 300px;
-    background-color: #f9f9f9;
-    
-}
-
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Shadow for depth */
+  margin: 20px;
+  overflow: hidden;  /* Prevent overflow */
+  transition: transform 0.2s; /* Smooth scaling effect on hover */
+  width: 300px;/* Fixed width for the card */
+  min-height: 500px;
+  background-color: #f9f9f9;
+  position: relative; /* Positioning context for absolute children */
+} 
+/* Card hover effect */
 .property-card:hover {
-    transform: scale(1.05); /* Slightly enlarge the card on hover */
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
 }
-
+/* Property card image styles */
 .property-card-image {
-    width: 100%; /* Full width for the image */
-    height: auto; /* Maintain aspect ratio */
+  width: 100%; /* Full width for the image */
+  height: auto; /* Maintain aspect ratio */
 }
-
+/* Property card content styles */
 .property-card-content {
-    padding: 15px; /* Space inside the card */
-    background-color: #f9f9f9; /* Light background for content */
+  padding: 15px; /* Space inside the card */
+  background-color: #f9f9f9; /* Light background for content */
 }
-
+/* Property card title styles */
 .property-card-content h3 {
-    margin: 0 0 10px; /* Space below the heading */
-    font-size: 1.5em; /* Larger font size for the title */
+  margin: 0 0 10px; /* Space below the heading */
+  font-size: 1.5em; /* Larger font size for the title */
 }
-
+/* Property card paragraph styles */
 .property-card-content p {
-    margin: 5px 0; /* Space between paragraphs */
+  margin: 5px 0; /* Space between paragraphs */
 }
-
+/* Button styles for card actions */
 .btn {
-
-    width: 40%;
-    height: 40px;
-
+  width: 40%;
+  height: 40px;
 }
-.card-button{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-  
-    
+/* Card button container styles */
+.card-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
 }
+/* Active favorite button styles */
 .favourite-btn.active svg {
-    fill: red; /* Change SVG color to red when active */
+  fill: red; /* Change SVG color to red when active */
 }
-
+/* Button styles for general use */
 .btn {
-    display: inline-block; /* Ensures it behaves like a button */
-    font-weight: bold;
-    text-align: center;
-    color: #fff; /* Text color */
-    background-color: #007bff; /* Button background color */
-    border: none;
-    border-radius: 5px;
-    text-decoration: none; /* Removes underline */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block; /* Ensures it behaves like a button */
+  font-weight: bold;
+  text-align: center;
+  color: #fff; /* Text color */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none; /* Removes underline */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
+/* View Details Button */
 .view-details-btn {
-    display: flex;
-    justify-content: center; /* Center the text horizontally */
-    align-items: center; /* Center the text vertically */
-    width: 100%; /* Optional: Make the button take full width of its container */
-  }
+  background-color: #166498; /* Light blue background */
+}
+/* View Details Button hover effect */
+.view-details-btn:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
 
+/* Favorite Button */
+.favourite-btn {
+  background-color: #f0f0f0; /* Light gray background */
+  color: #333; /* Dark text color for contrast */
+}
+/* Favorite Button hover effect */
+.favourite-btn:hover {
+  background-color: #ffcccc; /* Light red on hover when not a favorite */
+}
 
+/* Active Favorite Button */
+.favourite-btn.favorite {
+  background-color: #e74c3c; /* Red background when favorite */
+  color: #fff; /* White text color */
+}
+/* Active Favorite Button hover effect */
+.favourite-btn.favorite:hover {
+  background-color: #d01f0c; /* Darker red on hover when favorite */
+}
+/* View Details Button styles */
+.view-details-btn {
+  display: flex;
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; 
+  width: 100%; /* Optional: Make the button take full width of its container */
+}
 
-
-/* Favourite list styles */
+/* -----------------------------------Favourite list styles ------------------------------------------------*/
 
 /* Favorite List Container */
 .favorite-list {
-    border: 2px dashed #ddd; /* Dashed border for the drop area */
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
-    text-align: center;
-    transition: background-color 0.3s ease;
+  border: 2px dashed #ddd; /* Dashed border for the drop area */
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+  transition: background-color 0.3s ease;
 }
 
 /* Highlight the drop area when dragging over */
 .favorite-list.drag-over {
-    background-color: #ffe6e6; /* Light red background */
+  background-color: #ffe6e6; /* Light red background */
 }
 
 /* Favorite List Header */
 .favorite-list h2 {
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    color: #333;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 /* Favorite Items */
 .favorite-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 15px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;   /* Space between items */
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Shadow for depth */
+  transition: transform 0.2s ease, background-color 0.3s ease;   /* Smooth transition for hover effects */
 }
 
 /* Hover Effect on Favorite Items */
 .favorite-item:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-    background-color: #f0f0f0; /* Light gray background */
+  transform: scale(1.02); /* Slightly enlarge on hover */
+  background-color: #f0f0f0; /* Light gray background */
 }
 
 /* Favorite Item Text */
 .favorite-item p {
-    margin: 0;
-    font-size: 1.2em;
-    color: #555;
+  margin: 0;
+  font-size: 1.2em;
+  color: #555;
 }
 
 /* Remove Button */
 .favorite-item button {
-    background-color: #ff4d4d; /* Red background */
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
+  background-color: #ff4d4d; /* Red background */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
 }
 
 .favorite-item button:hover {
-    background-color: #cc0000; /* Darker red on hover */
+  background-color: #cc0000; /* Darker red on hover */
 }
 
 /* Empty List Message */
 .favorite-list p {
-    color: #888;
-    font-style: italic;
+  color: #888;
+  font-style: italic;
 }
 
-
-/* property details styles */
+/* --------------------------------property details styles---------------------------------------- */
 
 .property-details {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-  }
-  
-  /* Main Image */
-  .property-main-image {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .main-image {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  /* Thumbnails */
-  .property-thumbnails {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .thumbnail {
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
-    object-fit: cover;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: transform 0.2s ease, border-color 0.3s ease;
-  }
-  
-  .thumbnail:hover {
-    transform: scale(1.1);
-  }
-  
-  .thumbnail.active {
-    border-color: #007bff; /* Highlight active thumbnail */
-  }
-  
-  /* Property Info */
-  .property-info {
-    margin-top: 20px;
-  }
-  
-  .property-info h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  
-  .property-info p {
-    margin: 10px 0;
-    font-size: 1.2em;
-  }
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;  /* Left align text */
+}
 
-  .floor-plan img {
-    width: 100%;
-    max-width: 600px; /* Set a max-width to prevent overflow */
-    height: auto;
-    object-fit: contain; /* Ensures the aspect ratio is maintained */
-    margin: 0 auto; /* Center the image */
-    display: block;
-  }
+/* Main Image */
+.property-main-image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* Main image styles */
+.main-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover; /* Cover the area while maintaining aspect ratio */
+  border-radius: 10px;
+}
 
-/* contact page styles */
+/* Thumbnails */
+.property-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;  /* Space below thumbnails */
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  object-fit: cover;  /* Cover the area while maintaining aspect ratio */
+  cursor: pointer;  /* Pointer cursor on hover */
+  border: 2px solid transparent;  /* Transparent border */
+  transition: transform 0.2s ease, border-color 0.3s ease;  /* Smooth transition for hover effects */
+}
+/* Thumbnail hover effect */
+.thumbnail:hover {
+  transform: scale(1.1);
+}
+/* Active thumbnail styles */
+.thumbnail.active {
+  border-color: #007bff; /* Highlight active thumbnail */
+}
+
+/* Property Info */
+.property-info {
+  margin-top: 20px;
+}
+/* Property info heading styles */
+.property-info h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+/* Property info paragraph styles */
+.property-info p {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+/* Floor plan image styles */
+.floor-plan img {
+  width: 100%;
+  max-width: 600px; /* Set a max-width to prevent overflow */
+  height: auto;
+  object-fit: contain; /* Ensures the aspect ratio is maintained */
+  margin: 0 auto; /* Center the image */
+  display: block;
+}
+
+/* -------------------------------------contact page styles----------------------------------------- */
 .contact-page {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .contact-form {
-    margin: 20px 0;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .submit-btn {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .submit-btn:hover {
-    background-color: #45a049;
-  }
-  
-  .contact-info {
-    margin-top: 20px;
-    line-height: 1.8;
-  }
-  
-  .contact-info strong {
-    display: inline-block;
-    width: 70px;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+/* Contact form styles */
+.contact-form {
+  margin: 20px 0;
+}
+/* Form group styles */
+.form-group {
+  margin-bottom: 15px;
+}
+/* Label styles */
+label {
+  display: block;
+  font-weight: bold;
+}
+/* Input and textarea styles */
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+/* Submit button styles */
+.submit-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* Submit button hover effect */
+.submit-btn:hover {
+  background-color: #45a049;
+}
+/* Contact info styles */
+.contact-info {
+  margin-top: 20px;
+  line-height: 1.8;
+}
+/* Strong text in contact info */
+.contact-info strong {
+  display: inline-block;
+  width: 70px;
+}
 
-/* about page styles */
+/* ----------------------------------about page styles------------------------------------- */
 .about-page {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .about-page h1 {
-    font-size: 2em;
-    margin-bottom: 15px;
-  }
-  
-  .about-page p {
-    margin: 10px 0;
-    line-height: 1.6;
-  }
-  
-  .about-page ul {
-    list-style: disc;
-    margin-left: 20px;
-    line-height: 1.6;
-  }
-  
-  .about-page ul li {
-    margin-bottom: 10px;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+/* About page heading styles */
+.about-page h1 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+/* About page paragraph styles */
+.about-page p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+/* About page list styles */
+.about-page ul {
+  list-style: disc; /* Bullet points for list */
+  margin-left: 20px;
+  line-height: 1.6;   /* Line height for readability */
+}
+/* About page list item styles */
+.about-page ul li {
+  margin-bottom: 10px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Media query for smaller devices */
+/*---------------------- Media query for smaller devices----------------------------- */
+/* Responsive styles for devices with max-width of 600px */
 @media (max-width: 600px) {
-    .form {
-        padding: 30px; /* Reduce padding for smaller screens */
-        margin: 10px;
-    }
+  /*=============== Navigation links styles for mobile=========== */
+  .nav-links {
+    display: flex; /* Show links */
+    flex-direction: row; /* Stack links vertically */
+    position: absolute; /* Position links absolutely */
 
-    .row {
-        flex-direction: column; /* Stack fields vertically */
-    }
-    
+    top: 60px; /* Position below the nav bar */
+    left: 0; 
+    width: 100%; 
+    background-color: #2c3e50; /* Match background color */
+    padding: 10px 0;
+    z-index: 1000; /* Ensure it appears above other content */
+  }
+  /* Form styles for mobile */
+  .form {
+    padding: 30px; /* Reduce padding for smaller screens */
+    margin: 10px;
+  }
+  /* Row styles for mobile */
+  .row {
+    flex-direction: column; /* Stack fields vertically */
+  }
+  /* Button styles for mobile */
+  .button {
+    padding: 15px; /* Adjust button padding */
+    font-size: 18px; /* Adjust button font size */
+  }
 
-    .button {
-        padding: 15px; /* Adjust button padding */
-        font-size: 18px; /* Adjust button font size */
-    }
+  /* property card styles */
+  .property-results {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center align cards */
+  }
+  .propertyList {
+    margin: 15px;
+  }
 
-    /* property card styles */
-    .property-results {
-        flex-direction: column; /* Stack cards vertically */
-        align-items: center; /* Center align cards */
-    }
+  /* ================== favourite list styles =========================*/
 
-
-    /* favourite list styles */
-    
-    .favorite-list {
-        padding: 15px;
-        margin: 20px;
-    }
-
-    .favorite-item {
-        flex-direction: column; /* Stack content vertically */
-        align-items: flex-start;
-    }
-
-    .favorite-item button {
-        margin-top: 10px; /* Add space for stacked layout */
-        width: 100%; /* Full width on smaller screens */
-    }
-
-    .overlay-heading {
-      position: absolute;
-      top: 10%; /* Further adjust position for very small screens */
-      font-size: 35px; /* Even smaller font size */
-    }
-  
-    .overlay-text {
-      top: 35%; /* Further adjust position for very small screens */
-      font-size: 15px; /* Even smaller font size */
-    }
-  
-    .home-btn {
-      padding: 5px 10px; /* Further adjust padding for very small screens */
-      font-size: 12px; /* Even smaller font size */
-    }
+  .favorite-list {
+    padding: 15px;
+    margin: 20px;
+  }
+  /* Favorite item styles for mobile */
+  .favorite-item {
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start;
+  }
+  /* Button styles for favorite items on mobile */
+  .favorite-item button {
+    margin-top: 10px; /* Add space for stacked layout */
+    width: 100%; /* Full width on smaller screens */
+  }
+  /* Overlay heading styles for mobile */
+  .overlay-heading {
+    position: absolute;
+    top: 10%; /* Further adjust position for very small screens */
+    font-size: 35px; /* Even smaller font size */
+  }
+   /* Overlay text styles for mobile */
+  .overlay-text {
+    top: 35%; /* Further adjust position for very small screens */
+    font-size: 15px; /* Even smaller font size */
+  }
+   /* Home button styles for mobile */
+  .home-btn {
+    padding: 5px 10px; /* Further adjust padding for very small screens */
+    font-size: 12px; /* Even smaller font size */
+  }
 }
