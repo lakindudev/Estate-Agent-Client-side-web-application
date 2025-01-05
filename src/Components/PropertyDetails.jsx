@@ -19,8 +19,7 @@ function PropertyDetails() {
   };
 
   // Generate Google Map URL for the property based on its location
-  const googleMapUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(property.location)}`;
-
+  const googleMapUrl = `https://www.google.com/maps?q=${property.location}&output=embed`;
   return (
     <div className="property-details">   {/* Main container for property details */}
       <div className="property-main-image">
