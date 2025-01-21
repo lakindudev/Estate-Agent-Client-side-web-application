@@ -91,22 +91,14 @@ function App() {
     }
   };
 
+  // Function to clear all favorites
+  const clearFavorites = () => {
+    setFavorites([]);  // Reset favorites to an empty array
+  };
+
   return (
     <Router>
       <NavBar />
-      <div className="image-container">   {/* Render the navigation bar */}
-        <img
-          src="https://t3.ftcdn.net/jpg/03/22/06/68/360_F_322066808_CANrp7u5Cdiz7700TJReqKD299d2AZtD.jpg"
-          alt="landpage_img"
-          className="landpage_img"
-        />
-        <div className="overlay-heading">Welcome to the HeavenHub</div>   {/* Overlay heading */}
-        <div className="overlay-text"> Discover your dream Property</div>
-        <button className="home-btn" onClick={handleHomeBtnClick}>   {/* Button to trigger search area scroll */}
-          {" "}
-          Search Now
-        </button>
-      </div>
       <Routes>
         <Route
           path="/"
@@ -138,6 +130,7 @@ function App() {
               <FavoriteList
                 favorites={favorites}    // Pass favorite properties to FavoriteList
                 onRemoveFavorite={toggleFavorite}    // Pass toggle function
+                onClearFavorites={clearFavorites} 
               />
             </>
           }
@@ -150,6 +143,7 @@ function App() {
             <FavoriteList
               favorites={favorites}    // Pass favorite properties to FavoriteList
               onRemoveFavorite={toggleFavorite}   // Pass toggle function
+              onClearFavorites={clearFavorites} 
             />
           }
         />

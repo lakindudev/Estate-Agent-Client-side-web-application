@@ -457,6 +457,27 @@ body {
   font-style: italic;
 }
 
+/* Styles for the Clear All Favorites button */
+.clear-all-button {
+  background-color: #ff4d4d; /* Red background color */
+  color: white;              /* White text color */
+  border: none;              /* No border */
+  border-radius: 5px;       /* Rounded corners */
+  padding: 10px 15px;       /* Padding for the button */
+  font-size: 16px;          /* Font size */
+  cursor: pointer;           /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.clear-all-button:hover {
+  background-color: #ff1a1a; /* Darker red on hover */
+}
+
+.clear-all-button:focus {
+  outline: none;             /* Remove outline on focus */
+}
+
+
 /* --------------------------------property details styles---------------------------------------- */
 
 .property-details {
