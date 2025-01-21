@@ -18,7 +18,7 @@ function PropertyDetails() {
     setMainImage(image);   // Update the main image to the clicked thumbnail
   };
 
-  // Generate Google Map URL for the property based on its location
+  // Google Map URL for the property based on its location
   const googleMapUrl = `https://www.google.com/maps?q=${property.location}&output=embed`;
   return (
     <div className="property-details">   {/* Main container for property details */}
