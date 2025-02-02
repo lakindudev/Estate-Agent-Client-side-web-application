@@ -8,6 +8,7 @@ import PropertyDetails from "./Components/PropertyDetails.jsx";
 import FavoriteList from "./Components/FavouriteList.jsx";
 import Contact from "./Components/Contact.jsx";
 import About from "./Components/About.jsx";
+import HomePage from "./Components/HomePage.jsx";
 import propertiesData from "./properties.json";
 
 
@@ -100,8 +101,9 @@ function App() {
     <Router>
       <NavBar />
       <Routes>
+        <Route path="/" element={<HomePage onSearch={handleSearch} />} />
         <Route
-          path="/"
+          path="/favorites"
           element={
             <>
               <h1 className="search-head" id="search-area">
@@ -135,18 +137,8 @@ function App() {
             </>
           }
         />
+         <Route path="/property/:id" element={<PropertyDetails />} />
         
-        <Route path="/property/:id" element={<PropertyDetails />} />   {/* Route for property details */}
-        <Route
-          path="/favorites"     
-          element={
-            <FavoriteList
-              favorites={favorites}    // Pass favorite properties to FavoriteList
-              onRemoveFavorite={toggleFavorite}   // Pass toggle function
-              onClearFavorites={clearFavorites} 
-            />
-          }
-        />
         <Route path="/about" element={<About />} />   {/* Route for About page */}
         <Route path="/contact" element={<Contact />} />   {/* Route for Contact page */}
       </Routes>

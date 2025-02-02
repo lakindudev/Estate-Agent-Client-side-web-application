@@ -635,6 +635,170 @@ textarea {
   margin-bottom: 10px;
 }
 
+/*------------------------- home page styles --------------------------------------  */
+/* Home Page Styles */
+.home-page {
+  font-family: Arial, sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+  background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-content {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.hero-title {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.5em;
+  margin-bottom: 40px;
+}
+
+/* Features Section */
+.features-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.features-title {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  margin: 10px;
+}
+
+.feature-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1em;
+  color: #555;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.testimonials-title {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+}
+
+.testimonials-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  margin: 10px;
+}
+
+.testimonial-card p {
+  font-size: 1em;
+  color: #555;
+}
+
+.testimonial-author {
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 10px;
+}
+
+/* Call to Action Section */
+.cta-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #1c354e;
+  color: white;
+}
+
+.cta-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.cta-subtitle {
+  font-size: 1.5em;
+  margin-bottom: 40px;
+}
+
+.cta-button {
+  background-color: #ff6f61;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #ff4a3a;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2em;
+  }
+
+  .features-grid, .testimonials-grid {
+    flex-direction: column;
+  }
+
+  .feature-card, .testimonial-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+
 /*---------------------- Media query for smaller devices----------------------------- */
 /* Responsive styles for devices with max-width of 600px */
 @media (max-width: 600px) {

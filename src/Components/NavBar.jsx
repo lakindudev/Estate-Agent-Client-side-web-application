@@ -15,7 +15,7 @@ function NavBar() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/favorites">Favorites</Link>
+            <Link to="/favorites">Properties</Link>
           </li>
           <li>
             <Link to="/about">About</Link>
