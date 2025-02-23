@@ -1,7 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import SearchForm from './SearchForm.jsx';
 
 function HomePage({ onSearch }) {
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  // Function to handle the "Search Now" button click
+  const handleSearchNowClick = () => {
+    navigate('/favorites'); // Navigate to the /favorites route
+  };
+
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -9,7 +17,9 @@ function HomePage({ onSearch }) {
         <div className="hero-content">
           <h1 className="hero-title">Find Your Dream Property</h1>
           <p className="hero-subtitle">Discover the perfect home with HavenHub</p>
-          <SearchForm onSearch={onSearch} />
+          <button className="search_btn" onClick={handleSearchNowClick}>
+              <span>Search Now</span>
+          </button>
         </div>
       </div>
 
@@ -55,7 +65,7 @@ function HomePage({ onSearch }) {
       <div className="cta-section">
         <h2 className="cta-title">Ready to Find Your Dream Home?</h2>
         <p className="cta-subtitle">Start your search today with HavenHub.</p>
-        <button className="cta-button" onClick={() => document.getElementById("search-area").scrollIntoView({ behavior: "smooth" })}>
+        <button className="cta-button" onClick={handleSearchNowClick}>
           Search Now
         </button>
       </div>

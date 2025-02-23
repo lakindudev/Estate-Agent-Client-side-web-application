@@ -102,10 +102,12 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage onSearch={handleSearch} />} />
+        
         <Route
           path="/favorites"
           element={
             <>
+            <div className="property-page-background">
               <h1 className="search-head" id="search-area">
                 Estate Agent Property Search     {/* Main heading for search area */}
               </h1>
@@ -134,10 +136,17 @@ function App() {
                 onRemoveFavorite={toggleFavorite}    // Pass toggle function
                 onClearFavorites={clearFavorites} 
               />
+              </div>
             </>
           }
         />
-         <Route path="/property/:id" element={<PropertyDetails />} />
+         <Route path="/property/:id" element={
+          <>
+
+          <PropertyDetails />
+          
+          </>
+          } />
         
         <Route path="/about" element={<About />} />   {/* Route for About page */}
         <Route path="/contact" element={<Contact />} />   {/* Route for Contact page */}
