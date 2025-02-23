@@ -715,53 +715,56 @@ textarea {
 .testimonials-section {
   padding: 60px 20px;
   text-align: center;
-  background-color: #fff;
+  background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+  color: #1e293b;
+  position: relative;
+  overflow: hidden;
 }
 
+.testimonials-grid {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 20px 0;
+}
+
+.testimonials-grid::before,
+.testimonials-grid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+}
+
+.testimonials-grid::before {
+  left: 0;
+  background: linear-gradient(to right, #f8fafc, transparent);
+}
+
+.testimonials-grid::after {
+  right: 0;
+  background: linear-gradient(to left, #f8fafc, transparent);
+}
 .testimonials-title {
   font-size: 2.5em;
   margin-bottom: 40px;
 }
 
 .testimonials-grid {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1400px;
 }
 
-.testimonial-card {
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 30%;
-  margin: 10px;
-}
-
-.testimonial-card p {
-  font-size: 1em;
-  color: #555;
-}
 
 .testimonial-author {
   font-size: 0.9em;
   color: #777;
   margin-top: 10px;
-}
-.search_btn {
-  background-color: #2563eb;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 6px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.search_btn:hover {
-  background-color: #1d4ed8;
 }
 /* Call to Action Section */
 .cta-section {
@@ -795,7 +798,22 @@ textarea {
 .cta-button:hover {
   background-color: #ff4a3a;
 }
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
 
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
 /* Responsive Styles */
 @media (max-width: 768px) {
   .hero-title {
