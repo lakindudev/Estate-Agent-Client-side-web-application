@@ -210,6 +210,82 @@ body {
   font-size: 20px;
   margin-bottom: 50px;
 }
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.search-button {
+  background-color: #ff6f61;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.reset-button {
+  background-color: #6B7280;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #ff4a3a;
+}
+
+.reset-button:hover {
+  background-color: #4B5563;
+}
+
+.favorites-panel {
+  position: fixed;
+  right: -400px;
+  top: 0;
+  width: 400px;
+  height: 100vh;
+  background-color: #1a1a1a;
+  transition: right 0.3s ease;
+  z-index: 50;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.favorites-panel.show {
+  right: 0;
+}
+
+.favorite-toggle-button {
+  background-color: #4A5568;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.favorite-toggle-button:hover {
+  background-color: #2D3748;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
 /* Row styles for form fields */
 .row {
   display: flex;
@@ -255,6 +331,8 @@ body {
 /* Search heading styles */
 .search-head {
   text-align: center;
+  margin-bottom: 20px;
+  font-size: 40px;
 }
 
 /* -------------------------------------property card styles----------------------------------------------------------- */
@@ -386,6 +464,34 @@ body {
   width: 100%; /* Optional: Make the button take full width of its container */
 }
 
+.favourite-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.favourite-btn:hover {
+  background: #f3f4f6;
+  transform: scale(1.05);
+}
+
+.favourite-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.favourite-btn.favorite {
+  background: #fee2e2;
+  border-color: #fecaca;
+}
 /* -----------------------------------Favourite list styles ------------------------------------------------*/
 
 /* Favorite List Container */
@@ -836,26 +942,34 @@ textarea {
 
 /* Add this to your global CSS file or the CSS file for the property page */
 
-.property-page-background{
-  background-color: black;
+.property-page-background {
+  background-color: #0f172a;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(-45deg, #f0f0f0, #ffffff, #e0e0e0, #f5f5f5);
-  background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
 }
 
-@keyframes gradientAnimation {
+/* Add these new styles */
+.animate-spotlight {
+  animation: spotlight 2s ease .75s 1 forwards;
+}
+
+@keyframes spotlight {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
   }
   100% {
-    background-position: 0% 50%;
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
   }
 }
+
+/* Remove the duplicate property-page-background class and gradient animation */
 
 
 /*---------------------- Media query for smaller devices----------------------------- */
@@ -931,3 +1045,4 @@ textarea {
     font-size: 12px; /* Even smaller font size */
   }
 }
+

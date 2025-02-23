@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // SearchForm component to handle property search input
-function SearchForm ({onSearch}){
+function SearchForm ({onSearch, onToggleFavorites, showFavorites}){
   // State to hold form data
   const [formData, setFormData] = useState({
     propertyType: "",   // Type of property (e.g., House, Flat)
@@ -22,6 +22,20 @@ function SearchForm ({onSearch}){
   const handleSubmit = (e) => {
     e.preventDefault();  // Function to handle form submission
     onSearch(formData); // Pass the form data to the parent component
+  };
+
+  const handleClear = () => {
+    setFormData({
+      propertyType: "",
+      postcode: "",
+      minPrice: "",
+      maxPrice: "",
+      minBedrooms: "",
+      maxBedrooms: "",
+      dateFrom: "",
+      dateTo: "",
+    });
+    onSearch({}); // Reset search results
   };
 
   return (
@@ -128,9 +142,26 @@ function SearchForm ({onSearch}){
         </div>
       </div>
 
-      <button type="submit" className="button">    {/* Submit button for the form */}
-        Search Properties
-      </button>
+      <div className="button-group">
+        <button type="submit" className="search-button">
+          Search Properties
+        </button>
+        <button
+          type="button"
+          onClick={handleClear}
+          className="reset-button"
+        >
+          Reset
+        </button>
+        <button
+          type="button"
+          onClick={onToggleFavorites}
+          className="favorite-toggle-button"
+        >
+          {showFavorites ? 'Hide Favorites' : 'Show Favorites'}
+        </button>
+      </div>
+      
     </form>
   );
 };

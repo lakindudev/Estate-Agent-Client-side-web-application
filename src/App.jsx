@@ -10,48 +10,48 @@ import Contact from "./Components/Contact.jsx";
 import About from "./Components/About.jsx";
 import HomePage from "./Components/HomePage.jsx";
 import propertiesData from "./properties.json";
-
+import PropertyPage from "./Components/PropertyPage";
 
 function App() {
-    // State to hold filtered properties and favorites
+  // State to hold filtered properties and favorites
   const [filteredProperties, setFilteredProperties] = useState(
-    propertiesData.properties    // Initial state set to all properties from JSON
+    propertiesData.properties // Initial state set to all properties from JSON
   );
-  const [favorites, setFavorites] = useState([]);   // State to hold favorite properties
+  const [favorites, setFavorites] = useState([]); // State to hold favorite properties
 
   // Function to handle property search based on form data
   const handleSearch = (formData) => {
     // Filter properties based on search criteria
     const filtered = propertiesData.properties.filter((property) => {
       const propertyDate = new Date(
-        `${property.added.year}-${property.added.month}-${property.added.day}`   // Convert added date to Date object
+        `${property.added.year}-${property.added.month}-${property.added.day}` // Convert added date to Date object
       );
       // Check if property matches the search criteria
       const matchesType = formData.propertyType
-        ? property.type.toLowerCase() === formData.propertyType.toLowerCase()    // Match property type
+        ? property.type.toLowerCase() === formData.propertyType.toLowerCase() // Match property type
         : true;
       const matchesPostcode = formData.postcode
         ? property.location
             .toLowerCase()
-            .includes(formData.postcode.toLowerCase())   // Match property location
+            .includes(formData.postcode.toLowerCase()) // Match property location
         : true;
-      const matchesMinPrice = formData.minPrice    
-        ? property.price >= formData.minPrice      // Match minimum price
+      const matchesMinPrice = formData.minPrice
+        ? property.price >= formData.minPrice // Match minimum price
         : true;
       const matchesMaxPrice = formData.maxPrice
-        ? property.price <= formData.maxPrice     // Match maximum price
+        ? property.price <= formData.maxPrice // Match maximum price
         : true;
       const matchesMinBedrooms = formData.minBedrooms
-        ? property.bedrooms >= formData.minBedrooms    // Match minimum bedrooms
+        ? property.bedrooms >= formData.minBedrooms // Match minimum bedrooms
         : true;
       const matchesMaxBedrooms = formData.maxBedrooms
-        ? property.bedrooms <= formData.maxBedrooms    // Match maximum bedrooms
+        ? property.bedrooms <= formData.maxBedrooms // Match maximum bedrooms
         : true;
       const matchesDateFrom = formData.dateFrom
-        ? propertyDate >= new Date(formData.dateFrom)    // Match start date
+        ? propertyDate >= new Date(formData.dateFrom) // Match start date
         : true;
       const matchesDateTo = formData.dateTo
-        ? propertyDate <= new Date(formData.dateTo)     // Match end date
+        ? propertyDate <= new Date(formData.dateTo) // Match end date
         : true;
 
       // Return true if all conditions match
@@ -94,7 +94,7 @@ function App() {
 
   // Function to clear all favorites
   const clearFavorites = () => {
-    setFavorites([]);  // Reset favorites to an empty array
+    setFavorites([]); // Reset favorites to an empty array
   };
 
   return (
@@ -102,56 +102,57 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage onSearch={handleSearch} />} />
-        
         <Route
           path="/favorites"
           element={
-            <>
-            <div className="property-page-background">
-              <h1 className="search-head" id="search-area">
-                Estate Agent Property Search     {/* Main heading for search area */}
+            <PropertyPage
+              favorites={favorites}
+              onRemoveFavorite={toggleFavorite}
+              onClearFavorites={clearFavorites}
+            >
+              <h1 className="search-head text-white" id="search-area">
+                Estate Agent Property Search
               </h1>
-              <SearchForm onSearch={handleSearch} />    {/* Render search form */}
+              <SearchForm onSearch={handleSearch} onToggleFavorites={undefined} showFavorites={false}/>
               <div className="propertyList">
-                <h2 className="property-list-heading">Property List</h2>   {/* Heading for property list */}
+                <h2 className="property-list-heading text-white">
+                  Property List
+                </h2>
                 <div className="property-results">
                   {filteredProperties.length > 0 ? (
                     filteredProperties.map((property) => (
                       <PropertyCard
-                        key={property.id}       // Unique key for each property card
-                        property={property}    // Pass property data to PropertyCard
-                        onToggleFavorite={toggleFavorite} // Pass toggle function
+                        key={property.id}
+                        property={property}
+                        onToggleFavorite={toggleFavorite}
                         isFavorite={favorites.some(
-                          (fav) => fav.id === property.id   // Check if property is favorite
+                          (fav) => fav.id === property.id
                         )}
                       />
                     ))
                   ) : (
-                    <p>No properties match your search criteria.</p>  // Message if no properties found
+                    <p className="text-white">
+                      No properties match your search criteria.
+                    </p>
                   )}
                 </div>
               </div>
-              <FavoriteList
-                favorites={favorites}    // Pass favorite properties to FavoriteList
-                onRemoveFavorite={toggleFavorite}    // Pass toggle function
-                onClearFavorites={clearFavorites} 
-              />
-              </div>
+            </PropertyPage>
+          }
+        />
+        <Route
+          path="/property/:id"
+          element={
+            <>
+              <PropertyDetails />
             </>
           }
         />
-         <Route path="/property/:id" element={
-          <>
-
-          <PropertyDetails />
-          
-          </>
-          } />
-        
-        <Route path="/about" element={<About />} />   {/* Route for About page */}
-        <Route path="/contact" element={<Contact />} />   {/* Route for Contact page */}
+        <Route path="/about" element={<About />} /> {/* Route for About page */}
+        <Route path="/contact" element={<Contact />} />{" "}
+        {/* Route for Contact page */}
       </Routes>
-      <Footer />   {/* Render the footer */}
+      <Footer /> {/* Render the footer */}
     </Router>
   );
 }
