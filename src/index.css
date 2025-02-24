@@ -671,20 +671,30 @@ body {
   padding: 20px;
   font-family: Arial, sans-serif;
 }
-/* Contact form styles */
+
+.contact-page h1 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.contact-page p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
 .contact-form {
   margin: 20px 0;
 }
-/* Form group styles */
+
 .form-group {
   margin-bottom: 15px;
 }
-/* Label styles */
+
 label {
   display: block;
   font-weight: bold;
 }
-/* Input and textarea styles */
+
 input,
 textarea {
   width: 100%;
@@ -693,7 +703,7 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-/* Submit button styles */
+
 .submit-btn {
   padding: 10px 20px;
   background-color: #4caf50;
@@ -702,47 +712,70 @@ textarea {
   border-radius: 4px;
   cursor: pointer;
 }
-/* Submit button hover effect */
+
 .submit-btn:hover {
   background-color: #45a049;
 }
-/* Contact info styles */
+
 .contact-info {
   margin-top: 20px;
   line-height: 1.8;
 }
-/* Strong text in contact info */
+
 .contact-info strong {
   display: inline-block;
   width: 70px;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .contact-page h1 {
+    font-size: 1.5em;
+  }
+
+  .contact-page p {
+    font-size: 0.9em;
+  }
+}
+
 /* ----------------------------------about page styles------------------------------------- */
+/* About Page Styles */
 .about-page {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
+  height: 100vh;
 }
-/* About page heading styles */
-.about-page h1 {
+
+.about-page h1, .about-page h2 {
   font-size: 2em;
   margin-bottom: 15px;
 }
-/* About page paragraph styles */
-.about-page p {
+
+.about-page p, .about-page ul {
   margin: 10px 0;
   line-height: 1.6;
 }
-/* About page list styles */
+
 .about-page ul {
-  list-style: disc; /* Bullet points for list */
+  list-style: disc;
   margin-left: 20px;
-  line-height: 1.6;   /* Line height for readability */
 }
-/* About page list item styles */
+
 .about-page ul li {
   margin-bottom: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .about-page h1, .about-page h2 {
+    font-size: 1.5em;
+  }
+
+  .about-page p, .about-page ul {
+    font-size: 0.9em;
+  }
 }
 
 /*------------------------- home page styles --------------------------------------  */
@@ -943,7 +976,7 @@ textarea {
 /* Add this to your global CSS file or the CSS file for the property page */
 
 .property-page-background {
-  background-color: #0f172a;
+  background-color: #0e275d;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -976,40 +1009,28 @@ textarea {
 /* Responsive styles for devices with max-width of 600px */
 @media (max-width: 600px) {
   /*=============== Navigation links styles for mobile=========== */
+
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .nav-links {
-    display: flex; /* Show links */
-    flex-direction: row; /* Stack links vertically */
-    position: absolute; /* Position links absolutely */
-
-    top: 60px; /* Position below the nav bar */
-    left: 0; 
-    width: 100%; 
-    background-color: #2c3e50; /* Match background color */
+    display: none; /* Hide links by default */
+    flex-direction: column;
+    width: 100%; /* Full width */
+    background-color: #1c354e; /* Match navbar background */
     padding: 10px 0;
-    z-index: 1000; /* Ensure it appears above other content */
-  }
-  /* Form styles for mobile */
-  .form {
-    padding: 30px; /* Reduce padding for smaller screens */
-    margin: 10px;
-  }
-  /* Row styles for mobile */
-  .row {
-    flex-direction: column; /* Stack fields vertically */
-  }
-  /* Button styles for mobile */
-  .button {
-    padding: 15px; /* Adjust button padding */
-    font-size: 18px; /* Adjust button font size */
   }
 
-  /* property card styles */
-  .property-results {
-    flex-direction: column; /* Stack cards vertically */
-    align-items: center; /* Center align cards */
+  .nav-links.show {
+    display: flex; /* Show links when toggled */
   }
-  .propertyList {
-    margin: 15px;
+
+  .nav-links a {
+    padding: 10px 20px;
+    width: 100%; /* Full width for each link */
+    text-align: left; /* Align text to the left */
   }
 
   /* ================== favourite list styles =========================*/

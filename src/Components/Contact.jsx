@@ -1,63 +1,92 @@
-import React from "react";
+import React, { useState } from "react";
 
-// Contact component to display the contact form and contact information
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name) newErrors.name = "Name is required";
+    if (!formData.email) newErrors.email = "Email is required";
+    if (!formData.message) newErrors.message = "Message is required";
+    return newErrors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      // Handle form submission
+      console.log("Form submitted", formData);
+      setFormData({ name: "", email: "", message: "" });
+      setErrors({});
+    }
+  };
+
   return (
     <div className="contact-page">
-      {" "}
-      {/* Main container for the contact page */}
       <h1>Contact Us</h1>
       <p>
         We'd love to hear from you! Please reach out to us using the form below
         or contact us directly via email or phone.
       </p>
-      <form className="contact-form">
-        {" "}
-        {/* Form for user input */}
+      <form className="contact-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          {" "}
-          {/* Container for name input */}
-          <label htmlFor="name">Name</label> {/* Label for name input */}
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
             name="name"
             placeholder="Your name"
+            value={formData.name}
+            onChange={handleChange}
             required
           />
+          {errors.name && <p className="error">{errors.name}</p>}
         </div>
         <div className="form-group">
-          {" "}
-          {/* Container for email input */}
           <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
             name="email"
             placeholder="Your email"
+            value={formData.email}
+            onChange={handleChange}
             required
           />
+          {errors.email && <p className="error">{errors.email}</p>}
         </div>
         <div className="form-group">
-          {" "}
-          {/* Container for message input */}
           <label htmlFor="message">Message</label>
           <textarea
             id="message"
             name="message"
             placeholder="Your message"
             rows="5"
+            value={formData.message}
+            onChange={handleChange}
             required
           ></textarea>
+          {errors.message && <p className="error">{errors.message}</p>}
         </div>
         <button type="submit" className="submit-btn">
           Send Message
-        </button>{" "}
-        {/* Submit button for the form */}
+        </button>
       </form>
       <div className="contact-info">
-        {" "}
-        {/* Container for contact details */}
         <h2>Contact Details</h2>
         <p>
           <strong>Email:</strong> havenhouse@gmail.com
@@ -66,7 +95,7 @@ function Contact() {
           <strong>Phone:</strong> +94 123 456 7890
         </p>
         <p>
-          <strong>Address:</strong> 123 Haven Street, Dream City, Colombo-10{" "}
+          <strong>Address:</strong> 123 Haven Street, Dream City, Colombo-10
         </p>
       </div>
     </div>

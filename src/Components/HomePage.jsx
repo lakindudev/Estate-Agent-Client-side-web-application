@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import SearchForm from './SearchForm.jsx';
 import { TextGenerateEffect } from './TextGenerateEffect';
 import { InfiniteMovingCards } from './InfiniteMovingCards';
+import { Button } from './MovingBorder.jsx';
 
 function HomePage({ onSearch }) {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   // Function to handle the "Search Now" button click
   const handleSearchNowClick = () => {
