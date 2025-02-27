@@ -15,13 +15,10 @@ body {
 }
 /* -----------------------------navigation bar styles ----------------------------------------- */
 .nav-bar {
-  margin: 0;
-  padding: 0;
+  height: 60px;  
   display: flex;
-  flex-direction: row;
-  background-color: #1c354e;
-  justify-content: space-between;
-  color: white;
+  align-items: center; 
+  padding: 0 20px; 
 }
 /* Logo styles */
 .logo {
@@ -33,7 +30,7 @@ body {
 .logo-img {
   width: 60px;
   height: 60px;
-  margin-left: 20px;
+  margin-left: 10px;
   padding: 10px;
 }
 /* Logo name styles */
@@ -80,6 +77,46 @@ body {
 /* Show underline on hover */
 .nav-links a:hover::after {
   transform: scaleX(1); /* Scales to full width on hover */
+}
+.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.nav-bar.scrolled {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .nav-links.show {
+    display: flex;
+    position: absolute;
+  }
+
+  .nav-links a {
+    padding: 10px 20px;
+    width: 100%;
+    text-align: left;
+  }
+
 }
 
 /* -----------------------------------------footer styles-------------------------------------------- */
@@ -670,6 +707,8 @@ body {
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
+  margin-top: 100px;
+
 }
 
 .contact-page h1 {
@@ -746,6 +785,8 @@ textarea {
   padding: 20px;
   font-family: Arial, sans-serif;
   height: 100vh;
+  margin-top: 100px;
+  
 }
 
 .about-page h1, .about-page h2 {
@@ -866,6 +907,7 @@ textarea {
   margin: 0 auto;
   max-width: 1400px;
   padding: 20px 0;
+
 }
 
 .testimonials-grid::before,
@@ -1008,30 +1050,7 @@ textarea {
 /*---------------------- Media query for smaller devices----------------------------- */
 /* Responsive styles for devices with max-width of 600px */
 @media (max-width: 600px) {
-  /*=============== Navigation links styles for mobile=========== */
 
-  .nav-bar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    display: none; /* Hide links by default */
-    flex-direction: column;
-    width: 100%; /* Full width */
-    background-color: #1c354e; /* Match navbar background */
-    padding: 10px 0;
-  }
-
-  .nav-links.show {
-    display: flex; /* Show links when toggled */
-  }
-
-  .nav-links a {
-    padding: 10px 20px;
-    width: 100%; /* Full width for each link */
-    text-align: left; /* Align text to the left */
-  }
 
   /* ================== favourite list styles =========================*/
 

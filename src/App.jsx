@@ -110,7 +110,7 @@ function App() {
               onRemoveFavorite={toggleFavorite}
               onClearFavorites={clearFavorites}
             >
-              <h1 className="search-head text-white" id="search-area">
+              <h1 className="search-head mt-12 text-white" id="search-area">
                 Estate Agent Property Search
               </h1>
               <SearchForm onSearch={handleSearch} onToggleFavorites={undefined} showFavorites={false}/>

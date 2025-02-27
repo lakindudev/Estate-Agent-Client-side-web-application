@@ -1,34 +1,35 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
-import SearchForm from './SearchForm.jsx';
-import { TextGenerateEffect } from './TextGenerateEffect';
-import { InfiniteMovingCards } from './InfiniteMovingCards';
-import { Button } from './MovingBorder.jsx';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import SearchForm from "./SearchForm.jsx";
+import { TextGenerateEffect } from "./TextGenerateEffect";
+import { InfiniteMovingCards } from "./InfiniteMovingCards";
+import { Button } from "./MovingBorder.jsx";
 
 function HomePage({ onSearch }) {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   // Function to handle the "Search Now" button click
   const handleSearchNowClick = () => {
-    navigate('/favorites'); // Navigate to the /favorites route
+    navigate("/favorites"); // Navigate to the /favorites route
   };
 
   const testimonials = [
     {
       quote: "HavenHub made finding our dream home so easy and stress-free!",
       name: "John & Jane Doe",
-      title: "Homeowners"
+      title: "Homeowners",
     },
     {
       quote: "The team at HavenHub is professional and very helpful.",
       name: "Sarah Smith",
-      title: "Property Investor"
+      title: "Property Investor",
     },
     {
-      quote: "We found the perfect property within our budget. Highly recommend!",
+      quote:
+        "We found the perfect property within our budget. Highly recommend!",
       name: "Michael Brown",
-      title: "First-time Buyer"
-    }
+      title: "First-time Buyer",
+    },
   ];
 
   return (
@@ -36,16 +37,16 @@ function HomePage({ onSearch }) {
       {/* Hero Section */}
       <div className="hero-section">
         <div className="hero-content">
-        <TextGenerateEffect
-          words="Find Your Dream Property"
-          className="!text-6xl !font-bold !mb-4 !text-white"
-        />
-        <TextGenerateEffect
-          words="Discover the perfect home with HavenHub"
-          className="!text-2xl !text-gray-200 !mb-8" 
-          duration={0.3}
-        />
-          <button 
+          <TextGenerateEffect
+            words="Find Your Dream Property"
+            className="!text-6xl !font-bold !mb-4 !text-white"
+          />
+          <TextGenerateEffect
+            words="Discover the perfect home with HavenHub"
+            className="!text-2xl !text-gray-200 !mb-8"
+            duration={0.3}
+          />
+          <button
             onClick={handleSearchNowClick}
             className="relative inline-flex h-12 w-40 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
           >
@@ -59,15 +60,17 @@ function HomePage({ onSearch }) {
 
       {/* Features Section */}
       <div className="features-section">
-      <TextGenerateEffect
+        <TextGenerateEffect
           words="Why Choose HavenHub?"
           className="!text-5xl !font-bold !mb-8 !text-slate-800"
           duration={0.5}
-      />
+        />
         <div className="features-grid">
           <div className="feature-card">
             <h3>Wide Range of Properties</h3>
-            <p>Explore a diverse selection of properties tailored to your needs.</p>
+            <p>
+              Explore a diverse selection of properties tailored to your needs.
+            </p>
           </div>
           <div className="feature-card">
             <h3>Advanced Search Filters</h3>
@@ -82,18 +85,18 @@ function HomePage({ onSearch }) {
 
       {/* Testimonials Section */}
       <div className="testimonials-section">
-      <TextGenerateEffect
-  words="What Our Clients Say"
-  className="!text-5xl !font-bold !mb-8 !text-slate-900"
-  duration={0.5}
-/>
-        <div className="testimonials-grid">
-        <InfiniteMovingCards
-          items={testimonials}
-          direction="left"
-          speed="normal"
-          pauseOnHover={true}
+        <TextGenerateEffect
+          words="What Our Clients Say"
+          className="!text-5xl !font-bold !mb-8 !text-slate-900"
+          duration={0.5}
         />
+        <div className="testimonials-grid">
+          <InfiniteMovingCards
+            items={testimonials}
+            direction="left"
+            speed="normal"
+            pauseOnHover={true}
+          />
         </div>
       </div>
 
