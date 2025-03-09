@@ -11,7 +11,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background-color: #f0f0f0;
+  
   padding-top: 80px;
 }
 
@@ -244,51 +244,381 @@ body {
 
 /* ----------------------------------search Form styles------------------------------------------ */
 
+/* Enhanced SearchForm with more attractive UI */
 .form {
-  padding: 40px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #fff;
-  font-size: 20px;
-  margin-bottom: 50px;
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  padding: 35px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 
+              0 1px 3px rgba(0, 0, 0, 0.05),
+              0 20px 40px -20px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 50px;
+  max-width: 1200px;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  position: relative;
+  overflow: hidden;
 }
+
+/* Decorative elements */
+.form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  z-index: 1;
+}
+
+/* Dark mode for form */
+.dark-mode .form {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2),
+              0 1px 3px rgba(0, 0, 0, 0.1),
+              0 20px 40px -20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.field {
+  flex: 1;
+  padding: 0 12px;
+  min-width: 200px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #334155;
+  transition: color 0.3s ease;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  position: relative;
+  padding-left: 12px;
+}
+
+.field label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 14px;
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  border-radius: 2px;
+}
+
+.dark-mode .field label {
+  color: #e2e8f0;
+}
+
+.dark-mode .field label::before {
+  background: linear-gradient(to bottom, #60a5fa, #a78bfa);
+}
+
+.input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #ffffff;
+  color: #334155;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+.input:hover {
+  border-color: #cbd5e1;
+}
+
+.dark-mode .input {
+  background-color: #1e293b;
+  border-color: #475569;
+  color: #f8fafc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2);
+}
+
+.dark-mode .input:hover {
+  border-color: #64748b;
+}
+
+/* Select input styling */
+select.input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  padding-right: 45px;
+}
+
+.dark-mode select.input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+}
+
 .button-group {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
+  gap: 16px;
+  margin-top: 32px;
+  position: relative;
+}
+
+/* Gradient border for button group */
+.button-group::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(59, 130, 246, 0.3), 
+    rgba(139, 92, 246, 0.3), 
+    rgba(236, 72, 153, 0.3), 
+    transparent
+  );
 }
 
 .search-button {
-  background-color: #ff6f61;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: white;
-  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  padding: 14px 28px;
+  border-radius: 12px;
   cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  position: relative;
+  overflow: hidden;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
-.reset-button {
-  background-color: #6B7280;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+.search-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.7s ease;
+}
+
+.search-button:hover::before {
+  left: 100%;
 }
 
 .search-button:hover {
-  background-color: #ff4a3a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.search-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+.search-button::after {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.reset-button {
+  background: linear-gradient(135deg, #f43f5e, #e11d48);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 130px;
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.2);
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.reset-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.7s ease;
+}
+
+.reset-button:hover::before {
+  left: 100%;
 }
 
 .reset-button:hover {
-  background-color: #4B5563;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(225, 29, 72, 0.3);
+  background: linear-gradient(135deg, #e11d48, #be123c);
+}
+
+.reset-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.2);
+}
+
+.favorite-toggle-button {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.favorite-toggle-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.7s ease;
+}
+
+.favorite-toggle-button:hover::before {
+  left: 100%;
+}
+
+.favorite-toggle-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.3);
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+.favorite-toggle-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.2);
+}
+
+.favorite-toggle-button::after {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form {
+    padding: 25px;
+    border-radius: 12px;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .search-button, .reset-button, .favorite-toggle-button {
+    width: 100%;
+  }
+  
+  .field label {
+    font-size: 14px;
+  }
+  
+  .input {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Animation for form on page load */
+@keyframes formAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form {
+  animation: formAppear 0.5s ease-out forwards;
 }
 
 .favorites-panel {
@@ -387,15 +717,7 @@ body {
   justify-content: center;
 }
 /* Property list styles */
-.propertyList {
-  margin: 20px auto; /* Center the property list with margin */
-  padding: 20px; /* Add padding for spacing */
-  max-width: 1200px; 
-  background-color: #f9f9f9; 
-  border-radius: 10px; 
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  margin-bottom: 80px;
-}
+
 /* Property list heading styles */
 .property-list-heading {
   text-align: center; 
@@ -412,7 +734,6 @@ body {
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
-  background-color: #ffffff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -1084,13 +1405,47 @@ textarea {
 }
 
 /* Testimonials Section */
-.testimonials-section {
-  padding: 60px 20px;
-  text-align: center;
-  background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
-  color: #1e293b;
-  position: relative;
-  overflow: hidden;
+
+/* Add dark mode support for testimonials section */
+.dark-mode .testimonials-section {
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+  color: #f8fafc;
+}
+
+/* Update testimonials grid gradients to support dark mode */
+.testimonials-grid::before {
+  left: 0;
+  background: linear-gradient(to right, #f8fafc, transparent);
+  transition: background 0.3s ease;
+}
+
+.testimonials-grid::after {
+  right: 0;
+  background: linear-gradient(to left, #f8fafc, transparent);
+  transition: background 0.3s ease;
+}
+
+/* Add dark mode support for testimonials grid gradients */
+.dark-mode .testimonials-grid::before {
+  background: linear-gradient(to right, #0f172a, transparent);
+}
+
+.dark-mode .testimonials-grid::after {
+  background: linear-gradient(to left, #0f172a, transparent);
+}
+
+/* Update testimonial card styling for better dark mode support */
+.dark-mode .testimonial-card {
+  color: #f8fafc;
+}
+
+.dark-mode .testimonial-card::after {
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
+}
+
+/* Ensure testimonial author text is visible in dark mode */
+.dark-mode .testimonial-author {
+  color: #e2e8f0;
 }
 
 .testimonials-grid {
@@ -1099,30 +1454,6 @@ textarea {
   margin: 0 auto;
   max-width: 1400px;
   padding: 20px 0;
-}
-
-.testimonials-grid::before,
-.testimonials-grid::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 150px;
-  z-index: 2;
-}
-
-.testimonials-grid::before {
-  left: 0;
-  background: linear-gradient(to right, #f8fafc, transparent);
-}
-
-.testimonials-grid::after {
-  right: 0;
-  background: linear-gradient(to left, #f8fafc, transparent);
-}
-.testimonials-title {
-  font-size: 2.5em;
-  margin-bottom: 40px;
 }
 
 .testimonial-author {

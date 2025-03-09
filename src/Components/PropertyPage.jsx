@@ -22,11 +22,11 @@ const PropertyPage = ({ children, favorites, onRemoveFavorite, onClearFavorites 
       />
       
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-10">
-        <div className="glass-card mb-8 rounded-xl p-6 backdrop-blur-md bg-white/10 shadow-xl border border-white/20">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 text-center">
+        <div className="glass-card mb-8 rounded-xl p-6 backdrop-blur-md bg-white/10 shadow-xl border border-white/20 dark:bg-gray-900/30 dark:border-gray-700/30">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 text-center dark:text-gray-100">
             Find Your Dream Property
           </h1>
-          <p className="text-white/80 text-center mb-8 max-w-2xl mx-auto">
+          <p className="text-white/80 text-center mb-8 max-w-2xl mx-auto dark:text-gray-300">
             Browse our exclusive collection of premium properties. Use the search filters below to find your perfect home.
           </p>
           
