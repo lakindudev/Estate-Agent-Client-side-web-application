@@ -110,15 +110,13 @@ function App() {
               onRemoveFavorite={toggleFavorite}
               onClearFavorites={clearFavorites}
             >
-              <h1 className="search-head mt-12 text-white" id="search-area">
-                Estate Agent Property Search
-              </h1>
               <SearchForm onSearch={handleSearch} onToggleFavorites={undefined} showFavorites={false}/>
-              <div className="propertyList">
-                <h2 className="property-list-heading text-white">
-                  Property List
-                </h2>
-                <div className="property-results">
+              <div className="property-list-container">
+                <div className="property-list-header">
+                  <h2>Available Properties</h2>
+                  <p>{filteredProperties.length} properties found</p>
+                </div>
+                <div className="property-list-grid">
                   {filteredProperties.length > 0 ? (
                     filteredProperties.map((property) => (
                       <PropertyCard
@@ -131,9 +129,20 @@ function App() {
                       />
                     ))
                   ) : (
-                    <p className="text-white">
-                      No properties match your search criteria.
-                    </p>
+                    <div className="property-list-empty">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                      </svg>
+                      <p>No properties match your search criteria.</p>
+                      <button 
+                        onClick={() => handleSearch({})} 
+                        className="property-list-reset-button"
+                      >
+                        Reset Filters
+                      </button>
+                    </div>
                   )}
                 </div>
               </div>

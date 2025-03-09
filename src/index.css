@@ -405,137 +405,308 @@ body {
 }
 /* Individual property card styles */
 .property-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Shadow for depth */
-  margin: 20px;
-  overflow: hidden;  /* Prevent overflow */
-  transition: transform 0.2s; /* Smooth scaling effect on hover */
-  width: 300px;/* Fixed width for the card */
-  min-height: 500px;
-  background-color: #f9f9f9;
-  position: relative; /* Positioning context for absolute children */
-} 
-/* Card hover effect */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 .property-card:hover {
-  transform: scale(1.05); /* Slightly enlarge the card on hover */
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
-/* Property card image styles */
+
+.property-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 66.67%; /* 3:2 aspect ratio */
+  overflow: hidden;
+}
+
 .property-card-image {
-  width: 100%; /* Full width for the image */
-  height: auto; /* Maintain aspect ratio */
-}
-/* Property card content styles */
-.property-card-content {
-  padding: 15px; /* Space inside the card */
-  background-color: #f9f9f9; /* Light background for content */
-}
-/* Property card title styles */
-.property-card-content h3 {
-  margin: 0 0 10px; /* Space below the heading */
-  font-size: 1.5em; /* Larger font size for the title */
-}
-/* Property card paragraph styles */
-.property-card-content p {
-  margin: 5px 0; /* Space between paragraphs */
-}
-/* Button styles for card actions */
-.btn {
-  width: 40%;
-  height: 40px;
-}
-/* Card button container styles */
-.card-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 20px;
   position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-}
-/* Active favorite button styles */
-.favourite-btn.active svg {
-  fill: red; /* Change SVG color to red when active */
-}
-/* Button styles for general use */
-.btn {
-  display: inline-block; /* Ensures it behaves like a button */
-  font-weight: bold;
-  text-align: center;
-  color: #fff; /* Text color */
-  border: none;
-  border-radius: 5px;
-  text-decoration: none; /* Removes underline */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-/* View Details Button */
-.view-details-btn {
-  background-color: #166498; /* Light blue background */
-}
-/* View Details Button hover effect */
-.view-details-btn:hover {
-  background-color: #2980b9; /* Darker blue on hover */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
 }
 
-/* Favorite Button */
-.favourite-btn {
-  background-color: #f0f0f0; /* Light gray background */
-  color: #333; /* Dark text color for contrast */
-}
-/* Favorite Button hover effect */
-.favourite-btn:hover {
-  background-color: #ffcccc; /* Light red on hover when not a favorite */
+.property-card:hover .property-card-image {
+  transform: scale(1.1);
 }
 
-/* Active Favorite Button */
-.favourite-btn.favorite {
-  background-color: #e74c3c; /* Red background when favorite */
-  color: #fff; /* White text color */
-}
-/* Active Favorite Button hover effect */
-.favourite-btn.favorite:hover {
-  background-color: #d01f0c; /* Darker red on hover when favorite */
-}
-/* View Details Button styles */
-.view-details-btn {
-  display: flex;
-  justify-content: center; /* Center the text horizontally */
-  align-items: center; 
-  width: 100%; /* Optional: Make the button take full width of its container */
+.property-card-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  z-index: 2;
 }
 
-.favourite-btn {
+.property-card-favorite {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-  border-radius: 50%;
-  background: white;
-  border: 1px solid #e5e7eb;
+  border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  z-index: 2;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.favourite-btn:hover {
-  background: #f3f4f6;
-  transform: scale(1.05);
+.property-card-favorite:hover {
+  transform: scale(1.1);
+  background-color: white;
 }
 
-.favourite-btn svg {
+.property-card-favorite svg {
   width: 20px;
   height: 20px;
+  color: #f43f5e;
+  transition: all 0.3s ease;
 }
 
-.favourite-btn.favorite {
-  background: #fee2e2;
-  border-color: #fecaca;
+.property-card-favorite.is-favorite {
+  background-color: #f43f5e;
 }
+
+.property-card-favorite.is-favorite svg {
+  color: white;
+}
+
+.property-card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1.25rem;
+}
+
+.property-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.property-card-price {
+  margin-bottom: 1rem;
+}
+
+.property-card-price span {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.property-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.property-card-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.property-card-detail svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.property-card-button {
+  margin-top: auto;
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.property-card-button:hover {
+  background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Property List Container - Enhanced UI */
+.property-list-container {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+}
+
+.property-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.5);
+}
+
+.property-list-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.property-list-header p {
+  font-size: 0.875rem;
+  color: #64748b;
+  background-color: #e2e8f0;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+}
+
+.property-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.property-list-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: rgba(241, 245, 249, 0.5);
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+}
+
+.property-list-empty svg {
+  width: 48px;
+  height: 48px;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+.property-list-empty p {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.property-list-reset-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #4f46e5;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.property-list-reset-button:hover {
+  background-color: #3730a3;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .property-list-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .property-list-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .property-list-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  .property-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .property-card-title {
+    font-size: 1rem;
+  }
+  
+  .property-card-price span {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .property-list-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .property-list-container {
+    padding: 1rem;
+  }
+  
+  .property-card-image-wrapper {
+    padding-bottom: 60%; /* Slightly shorter on mobile */
+  }
+}
+
+/* Property Page Background - Enhanced */
+.property-page-background {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .property-page-background {
+    padding: 3rem 2rem;
+  }
+}
+
 /* -----------------------------------Favourite list styles ------------------------------------------------*/
 
 /* Favorite List Container */
@@ -1225,6 +1396,151 @@ body {
 @media (max-width: 768px) {
   body {
     padding-top: 70px;
+  }
+}
+
+/* Add these new styles to your index.css file */
+
+/* Glass card effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Enhanced property card */
+.property-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.property-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.property-card-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.property-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.property-card:hover .property-card-image {
+  transform: scale(1.1);
+}
+
+.favourite-btn-floating {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.favourite-btn-floating:hover {
+  transform: scale(1.1);
+  background: white;
+}
+
+.favourite-btn-floating.favorite {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Enhanced property results grid */
+.property-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+/* Enhanced favorites panel */
+.favorites-panel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: right 0.3s ease;
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.favorites-panel.show {
+  right: 0;
+}
+
+/* Enhanced buttons */
+.view-details-btn {
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Property page background */
+.property-page-background {
+  background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .favorites-panel {
+    width: 100%;
+    right: -100%;
+  }
+  
+  .property-results {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .button-group button {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }
 
