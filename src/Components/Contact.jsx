@@ -268,7 +268,6 @@ function Contact() {
                     <p className="mt-1 text-gray-600 dark:text-gray-300">
                       +94 72 185 3793
                     </p>
-                  
                   </div>
                 </div>
 
@@ -295,7 +294,6 @@ function Contact() {
                     <p className="mt-1 text-gray-600 dark:text-gray-300">
                       havenhouse235@gmail.com
                     </p>
-  
                   </div>
                 </div>
 
@@ -431,24 +429,6 @@ function Contact() {
                     </svg>
                   </a>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Map Section */}
-        <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden">
-          <div className="p-8">
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">
-              Find Us
-            </h2>
-            <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-              {/* Replace with actual map or iframe */}
-              <div className="w-full h-96 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                <p className="text-gray-500 dark:text-gray-400">
-                  Map will be displayed here. You can integrate Google Maps or
-                  any other map service.
-                </p>
               </div>
             </div>
           </div>

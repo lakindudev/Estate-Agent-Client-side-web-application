@@ -270,17 +270,20 @@ function About() {
               {
                 name: "Sarah Johnson",
                 role: "Founder & CEO",
-                bio: "With over 15 years of experience in real estate, Sarah leads our team with passion and expertise."
+                bio: "With over 15 years of experience in real estate, Sarah leads our team with passion and expertise.",
+                img: "https://sundancecollege.com/wp-content/uploads/2024/09/professional-business-manager-working-on-project-with-laptop-768x399.webp"
               },
               {
                 name: "Michael Chen",
                 role: "Chief Technology Officer",
-                bio: "Michael brings innovative tech solutions to make your property search experience seamless."
+                bio: "Michael brings innovative tech solutions to make your property search experience seamless.",
+                img: "https://askusedu.com/blogdashboard/wp-content/uploads/2024/03/general-manger.webp"
               },
               {
                 name: "Priya Patel",
                 role: "Head of Customer Relations",
-                bio: "Priya ensures that every client receives personalized attention and exceptional service."
+                bio: "Priya ensures that every client receives personalized attention and exceptional service.",
+                img: "https://emeritus.org/in/wp-content/uploads/sites/3/2022/09/business-manager.jpg.optimal.jpg"
               }
             ].map((member, index) => (
               <motion.div
@@ -291,9 +294,8 @@ function About() {
                 <div className="aspect-w-1 aspect-h-1 bg-gray-200 dark:bg-gray-700">
                   {/* Replace with actual team member photos */}
                   <div className="w-full h-64 bg-gradient-to-r from-gray-400 to-gray-500 flex items-center justify-center">
-                    <svg className="w-24 h-24 text-white opacity-50" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path>
-                    </svg>
+                  <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+
                   </div>
                 </div>
                 <div className="p-6">
@@ -306,71 +308,8 @@ function About() {
           </div>
         </motion.div>
 
-        {/* Testimonials Section */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <motion.h2 
-              variants={itemVariants}
-              className="text-3xl font-bold text-gray-900 dark:text-white mb-4"
-            >
-              What Our Clients Say
-            </motion.h2>
-            <motion.div 
-              variants={itemVariants}
-              className="h-1 w-24 bg-blue-600 mx-auto rounded-full mb-6"
-            ></motion.div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "HavenHub made finding our dream home so easy! The search filters were incredibly helpful, and we found exactly what we were looking for within weeks.",
-                author: "David & Emma Thompson",
-                location: "New homeowners in Colombo"
-              },
-              {
-                quote: "As a first-time buyer, I was nervous about the process. The HavenHub team guided me every step of the way, making it a stress-free experience.",
-                author: "Rajiv Mendis",
-                location: "First-time homeowner"
-              },
-              {
-                quote: "The detailed property insights helped us make an informed decision. We couldn't be happier with our new investment property!",
-                author: "Amara Fernando",
-                location: "Property investor"
-              }
-            ].map((testimonial, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 relative"
-              >
-                <svg className="w-12 h-12 text-blue-100 dark:text-blue-900 absolute top-6 left-6 opacity-25" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                </svg>
-                <p className="text-gray-600 dark:text-gray-300 mb-6 relative z-10">{testimonial.quote}</p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mr-4">
-                    <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">{testimonial.author}</h4>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.location}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Call to Action */}
+        
+      
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -382,6 +321,7 @@ function About() {
           <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
             Start your property search journey with HavenHub today and discover the perfect place to call home.
           </p>
+          
           <button className="bg-white text-blue-600 hover:bg-blue-50 font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
             Browse Properties
           </button>

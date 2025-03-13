@@ -113,7 +113,7 @@ function App() {
               <SearchForm onSearch={handleSearch} onToggleFavorites={undefined} showFavorites={false}/>
               <div className="property-list-container">
                 <div className="property-list-header">
-                  <h2>Available Properties</h2>
+                  <h2 className="text-white">Available Properties</h2>
                   <p>{filteredProperties.length} properties found</p>
                 </div>
                 <div className="property-list-grid">

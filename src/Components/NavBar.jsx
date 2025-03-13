@@ -85,13 +85,15 @@ function NavBar() {
             </Link>
           ))}
           
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="ml-4 px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-full shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40 transition-all duration-300"
-          >
-            Get Started
-          </motion.button>
+          <Link to="/favorites">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="ml-4 px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-full shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40 transition-all duration-300"
+            >
+              Get Started
+            </motion.button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -135,12 +137,14 @@ function NavBar() {
                     {link.name}
                   </Link>
                 ))}
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg"
-                >
-                  Get Started
-                </motion.button>
+                <Link to="/favorites">
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    className="mt-2 w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg"
+                  >
+                    Get Started
+                  </motion.button>
+                </Link>
               </div>
             </div>
           </motion.div>
