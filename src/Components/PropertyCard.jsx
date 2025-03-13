@@ -46,7 +46,7 @@ function PropertyCard({ property, onToggleFavorite, isFavorite }) {
         </button>
       </div>
       
-      <div className="property-card-content dark:bg-gray-800">
+      <div className="property-card-content bg-white dark:bg-gray-800 dark:text-gray-200">
         <h3 className="property-card-title dark:text-white">{property.thumbnail}</h3>
         
         <div className="property-card-price">

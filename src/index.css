@@ -888,14 +888,19 @@ select.input {
 
 /* Property List Container - Enhanced UI */
 .property-list-container {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .property-list-header {
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1122,6 +1127,9 @@ select.input {
 .clear-all-button:focus {
   outline: none;             /* Remove outline on focus */
 }
+.favorites-panel{
+  margin-top: 90px;
+}
 
 
 /* --------------------------------property details styles---------------------------------------- */
@@ -1132,9 +1140,13 @@ select.input {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  background-color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: left;  /* Left align text */
+  background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+  backdrop-filter: blur(10px); /* Frosted glass blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Ensure compatibility with Safari */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
 }
 
 /* Main Image */
@@ -1874,4 +1886,5 @@ body {
     margin-bottom: 10px;
   }
 }
+
 
